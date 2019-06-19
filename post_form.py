@@ -1,17 +1,27 @@
+"""Failed try to post form in automated mode without selenium."""
+
 import logging
 import requests
 import typing
 
 import config
+from dataclasses import dataclass
 
-FORM = 'https://2an.ru/new_order.aspx'
+
+@dataclass
+class FormData:
+    url: str
+    headers_path: str
+    data_path: str
+
+
 DELIMITER = ':'
 
 
 def set_logger():
     logger = logging.getLogger(__name__)
     stream = logging.StreamHandler()
-    file = logging.FileHandler('pass_post.log', encoding='utf8')
+    file = logging.FileHandler('pass_post.txt', encoding='utf8')
     stream.setLevel(logging.INFO)
     file.setLevel(logging.DEBUG)
     logger.setLevel(logging.DEBUG)
@@ -37,21 +47,30 @@ class FileWithFields:
         ])
 
 
-def order_pass():
-    response = requests.post(
-        FORM,
-        headers=FileWithFields('headers.txt').dict(),
-        data=FileWithFields('form.txt').dict(),
+def order_pass(form: FormData, session: requests.Session):
+    response = session.post(
+        form.url,
+        headers=FileWithFields(form.headers_path).dict(),
+        data=FileWithFields(form.data_path).dict(),
         auth=(config.LOGIN, config.PASSWORD)
     )
+    logger.info(30*'-' + form.url + 30*'-')
     logger.info(response.status_code)
     logger.info(response.text)
-    logger.info(
-        # TODO - doc how IQparks app works
-        'The pass created successfully!'
-        if 'theForm.submit();' in response.text
-        else 'The pass creating failed!'
+
+
+with requests.Session() as session:
+    order_pass(
+        FormData(
+            url='https://2an.ru/new_order.aspx',
+            headers_path='headers.txt',
+            data_path='form.txt'
+        ),
+        session
     )
 
-
-order_pass()
+    url = 'https://2an.ru/orders.aspx'
+    response = session.get(url, auth=(config.LOGIN, config.PASSWORD))
+    logger.info(30*'-' + url + 30*'-')
+    logger.info(response.status_code)
+    logger.info(response.text)
