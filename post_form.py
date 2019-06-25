@@ -11,7 +11,6 @@ from dataclasses import dataclass
 @dataclass
 class FormData:
     url: str
-    headers_path: str
     data_path: str
 
 
@@ -38,7 +37,7 @@ class FileWithFields:
         self.path = path
 
     def dict(self) -> typing.Dict[str, str]:
-        with open(self.path, 'r', encoding='cp1251') as f:
+        with open(self.path, 'r', encoding='utf8') as f:
             data = f.read()
         split = lambda s: s.split(DELIMITER)
         return dict([
@@ -50,27 +49,19 @@ class FileWithFields:
 def order_pass(form: FormData, session: requests.Session):
     response = session.post(
         form.url,
-        headers=FileWithFields(form.headers_path).dict(),
         data=FileWithFields(form.data_path).dict(),
         auth=(config.LOGIN, config.PASSWORD)
     )
-    logger.info(30*'-' + form.url + 30*'-')
-    logger.info(response.status_code)
-    logger.info(response.text)
+    logger.debug(30*'-' + form.url + 30*'-')
+    logger.info(f'response {response.status_code}')
+    logger.debug(response.text)
 
 
 with requests.Session() as session:
     order_pass(
         FormData(
             url='https://2an.ru/new_order.aspx',
-            headers_path='headers.txt',
-            data_path='form.txt'
+            data_path='form_data/form.txt'
         ),
         session
     )
-
-    url = 'https://2an.ru/orders.aspx'
-    response = session.get(url, auth=(config.LOGIN, config.PASSWORD))
-    logger.info(30*'-' + url + 30*'-')
-    logger.info(response.status_code)
-    logger.info(response.text)
