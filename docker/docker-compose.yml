@@ -1,0 +1,10 @@
+version: '2'
+services:
+  app:
+    image: duker/adarsha_pass_bot
+    build:
+      context: ../
+      dockerfile: ./docker/app/Dockerfile
+    volumes:
+      - ./:/usr/src
+    command: sleep infinity

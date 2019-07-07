@@ -1,0 +1,13 @@
+==Create initial infrastructure==
+- File structure
+- docker for app
+- registry for docker
+-- ready --
+- @todo Linter. Code coverage. Rake file with deploy, test commands.
+
+==Init arch==
+- Create Manager
+- Create HelloBot
+https://pypi.org/project/vk-api/ or https://vk-api.readthedocs.io/en/latest/
+- Create initial arch
+
