@@ -18,7 +18,6 @@ report.xml
 .mypy_cache
 .pytest_cache
 .vscode
-form-data/
-onetwo
-form_data/
+bot/form_data/
 bot/config.py
+Auth_and_Order_02.php
