@@ -1,6 +1,4 @@
 ==Init arch==
-- Create Manager
 - Create HelloBot
 https://pypi.org/project/vk-api/ or https://vk-api.readthedocs.io/en/latest/
-- Create initial arch
-
+- Create prototype: Guest.FIO + date -> Administrator orders pass

@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="stylesheet" type="text/css" href="/DXR.axd?r=0_1421" />
+<link rel="stylesheet" type="text/css" href="/DXR.axd?r=0_1418" />
+<link rel="stylesheet" type="text/css" href="/DXR.axd?r=2_0" />
+<link rel="stylesheet" type="text/css" href="/DXR.axd?r=2_1" />
+<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>
+	*Личный кабинет*
+</title><link href="css/library/reset.css" rel="stylesheet" type="text/css" /><link href="css/library/normalize.css" rel="stylesheet" type="text/css" /><link href="css/main.css" rel="stylesheet" type="text/css" /><link href="css/customization.css" rel="stylesheet" type="text/css" /><link rel="Stylesheet" href="css/NotifModalDialog.css" type="text/css" media="all" /><link href="css/WebControls/ButtonLK2015.css" rel="stylesheet" type="text/css" /><link href="css/WebControls/Sprites/ButtonSpriteLK2015.css" rel="stylesheet" type="text/css" /><link href="css/WebControls/ComboBoxLK2015.css" rel="stylesheet" type="text/css" /><link href="css/WebControls/Sprites/ComboBoxSpriteLK2015.css" rel="stylesheet" type="text/css" /><link href="css/WebControls/GridViewLK2015.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-16837938-32']);
+		_gaq.push(['_trackPageview']);
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		function setTime() {
+			var txt = document.getElementById('TextBoxEndWorking');
+			var s = txt.innerText.split(":", 3);
+			if (s.Length === 1) txt.innerText = "0" + txt.innerText + ":00:00";
+			else if (s.Length == 2) txt.innerText = "0" + txt.innerText + ":00";
+		}
+	</script>
+	<script type="text/javascript" src="Scripts/jQuery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="Scripts/jQuery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="Scripts/MasterPage.js" ></script>
+<link href="/WebResource.axd?d=Zbtp6fu0KGdYMka_2MENYdy7u-S77ilNaqtnyQtr8UOiGz_vlMjWHB-c9_nyM0HB6-UNtAKQwRPnougo2s8HqtsLnsEnFeDA5KV1Y7SJmBa5pBzGzGNKFVcXDJ203dKIELIYlGNhmUtuYXZ5dAe27g2&t=636022115322054604" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<!-- Yandex.Metrika counter -->
+	<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+	<div style="display:none">
+		<script type="text/javascript">
+			try {
+				var yaCounter1659353 = new Ya.Metrika({ id: 1659353, clickmap: true, trackLinks: true, webvisor: true });
+			}
+			catch (e) { }
+		</script>
+	</div>
+	<noscript>
+		<div><img src="//mc.yandex.ru/watch/1659353" style="position:absolute; left:-9999px" alt="" /></div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+	<form name="aspnetForm" method="post" action="new_order.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm" enctype="multipart/form-data">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="ctl00_PageContent_CropImg_url" id="ctl00_PageContent_CropImg_url" value="" />
+<input type="hidden" name="ctl00_PageContent_FilePhoto_ClientState" id="ctl00_PageContent_FilePhoto_ClientState" value="" />
+<input type="hidden" name="ctl00_PageContent_FileScan_ClientState" id="ctl00_PageContent_FileScan_ClientState" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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MDIeBXN0eWxlBQx3aWR0aDoyNTBweDtkAncPZBYCZg9kFgICAQ9kFgICAQ9kFgJmDxYEHw8FIGN0bDAwX1BhZ2VDb250ZW50X0ZpbGVTY2FuX2N0bDAyHxAFDHdpZHRoOjMwNnB4O2QCeQ88KwAFAQAPFgQfBgUUdmRha2luc2hpbkBnbWFpbC5jb20fBGdkZAJ/DzwrAAUBAA8WBB8GBQwrNzkxNjI1OTUxNzUfBGdkZAKDAQ88KwARAgAPFgQeC18hRGF0YUJvdW5kZx4LXyFJdGVtQ291bnRmZAEQFgAWABYAZAKLAQ8PZA8QFgFmFgEWAh8NZBYBAgNkZAIFD2QWAgIBD2QWAgIDD2QWBgIBDw8WAh8BBQcrNyA0OTUgZGQCAw8PFgIfAQUINjY1LTU4OTRkZAIFDw8WAh8BBTbQo9C/0YDQsNCy0LvRj9GO0YnQsNGPINC60L7QvNC/0LDQvdC40Y8gIlNLWSBQcm9wZXJ0eSJkZBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WEAUhY3RsMDAkUGFnZUNvbnRlbnQkQ21iUGFzc1R5cGUkREREBSZjdGwwMCRQYWdlQ29udGVudCRDbWJDb21wbGV4U2VsZWN0JERERAUjY3RsMDAkUGFnZUNvbnRlbnQkQ21iUGVyc29uVHlwZSREREQFImN0bDAwJFBhZ2VDb250ZW50JERieEJpcnRoRGF0ZSREREQFKGN0bDAwJFBhZ2VDb250ZW50JERieEJpcnRoRGF0ZSREREQkQyRGTlAFIGN0bDAwJFBhZ2VDb250ZW50JENtYkRvY1R5cGUkREREBSBjdGwwMCRQYWdlQ29udGVudCRUYnhEb2NEYXRlJERERAUmY3RsMDAkUGFnZUNvbnRlbnQkVGJ4RG9jRGF0ZSREREQkQyRGTlAFI2N0bDAwJFBhZ2VDb250ZW50JENtYkFjY2Vzc1R5cGUkREREBR1jdGwwMCRQYWdlQ29udGVudCRDbWJNYXJrJERERAUmY3RsMDAkUGFnZUNvbnRlbnQkQ21iQ2FyTnVtYmVyVHlwZSREREQFIGN0bDAwJFBhZ2VDb250ZW50JENtYkNhclR5cGUkREREBSJjdGwwMCRQYWdlQ29udGVudCRDbWJDYXJXZWlnaHQkREREBRtjdGwwMCRQYWdlQ29udGVudCRGaWxlUGhvdG8FGmN0bDAwJFBhZ2VDb250ZW50JEZpbGVTY2FuBTBjdGwwMCRQYWdlQ29udGVudCRHdlBhc3NlbmdlcnMkY3RsMDIkY21kQWRkRW1wdHkFHmN0bDAwJFBhZ2VDb250ZW50JEd2UGFzc2VuZ2Vycw88KwAMAQhmZLNuNnJXrjJTol8hz2Fx0LnguVODRMvXQ6UDCcLN/NRn" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+<script src="/WebResource.axd?d=dQ7h_BYxf_yJmwwHyJ-a_gf_W8navftSxntnBeGtzwjWLTXwXdLZkLBMruoDl51Gaj_Ey4_Oe0AYRrc9-BVO1p4lrkU_HuX9sz0j9e7XmW41&amp;t=636309331498591069" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=4_9C4oyi6zAswCzRBnphwtlCv1QRa2cmddaS1SDcz1HWtAkEA-vp4w3xMz26bNV01C_X_vPbimRU934eXgl4dqyW-4oT64Zyuf5pwvClisj_JcgEeTSustPBX0phNsVpDs1ASddoti9_kY9M6v7itm90QzjrrkqTnrEns89JngI1&amp;t=ffffffffb3aa5c5a" type="text/javascript"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js" type="text/javascript"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="/WebResource.axd?d=EqU9jTcDCzBr32BB9ZdHOKMECDFke1Jqng0FXVlNPoSam2tWVY70d62umaRME1R9IAyBXhNjRduD4qlcoeGguyeHnJUpXp9FHQCsUkaqm2GPYvT7sjjy3hFymVHZpzzubxM-tPdUtfV41wTCcz-t5A2&t=636022115322054604"%3E%3C/script%3E'))</script>
+<script src="/WebResource.axd?d=hxUUQMKpNxvJ09k1He1KkcaBvNq3O_8sQ4wTi30l0jUPB00gvgHeAxAQ4U_ERthZCvd15FqKX4-XSD7X09GIPkunA7d6ZW9jzrhwi819rjBuBHkGqmaMW3RhH91SnsE1Je39bsD0ecdzFt255i3Qug2&t=636022115322054604" type="text/javascript"></script>
+<script src="/WebResource.axd?d=jacZJLZ3kE-ZEHwdQ5vVxqCGh-_lxYecBwb-D8IdncBgk5YW30Fi-snuImww69Jy1MyrsCdqqbvX44EucUPtzo1Hdx5UHmWVwSKuJnxo6PgzBEPUzQ2gxuh6QVGYrWWGfcmdLtjFkB1IgWiOjjMjEA2&t=636022115322054604" type="text/javascript"></script>
+<script>$(function(){ 
+webcropimage('#ctl00_PageContent_ImgPhoto', {
+keepAspectRatio: true,
+aspectRatio: 3/4,
+boxHeight: 400,
+boxWidth: 300,
+updateFields: '#ctl00_PageContent_CropImg_url',
+});});</script>
+<script src="/ScriptResource.axd?d=qtgtQIDzOw7sexEtaTToklGSPCYWz4K3rU7LB4FpNTKeAa7ns5RBSSmL74-RBCwAoKWOr_lBJXIvAaFxTYwOWCpydIA2oiqdskV2iyRDnd_c_bL198cJIzZO1wRsjkoGlLF6ExrrpDUPQ0v8OiHVDA2&amp;t=48e38e19" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+<script src="/ScriptResource.axd?d=nzRvCqB-DCNvFEEvDfUqbH0BXuqLU3wylR-mlIdrFa6dOm-CzYvrfGQ1z6IwUg0Ej6jAnD5FLaLC14IPYRmKWhfXTeQlRm2c1cQAY_77TNbEobqVQmq9r6Qm7QjmSVifYhARR2vFtoeNDC5LCe98dA2&amp;t=48e38e19" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=-uUHAZP4xsvGE01uYeKtuNKJ2hb9-seOof-l9-btKmk2mIbic16JsXAPZSThDjIkE4UFCQXNt4nUH2_gVY48qDEeI0y8s8u69elscTj3QAE4kgf21uW4Jo62bytxLmksWjYLTGQ4sq64HCFugtWn-Q2&amp;t=48e38e19" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=4RmXuQyTZAUz2lvBiyKu-GCiBcNAcSK316_nAXPum0tw9xmMN6hw2Sndc1kITajlo5CcIZ4uU4dKCDzuRJoFGDLFweGCo4usP-4MVbHQvQ5hGz-7S5GPDngcACoIwuSYi6JL7DbkGH9q4bO8NM3Ysw2&amp;t=48e38e19" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=7ltWuWimwrffJXKMXJrM3c6HdKTJM_f9DFbIXAyPMdq0hZ9GzdiztO_FX5DJRdC8oeLwjVYoLkSFPIVY1Mgisn9ThIfe9GPdlTv7LlwdZTYMLvDeU58m310fFmUtwjV9DjjN6Ji3Yj2f631OJqXo1cIx04drY4tdqdViFWZ3o781&amp;t=48e38e19" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+<div>
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9B8E9023" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+</div>
+		<span id="ctl00_LblDebug" style="display:none">29</span>
+<script src="Scripts/NotifModalDialog.js" type="text/javascript"></script>
+<div id="boxes" style="text-align:center;">
+	<div id="dialog" class="window" style="height:220px;">
+		<div class="top" style="text-align:center; padding-top:7px;">
+			<span class="obj_vert_align_center" style="text-align:center; vertical-align:middle;">Уведомление</span>
+			<a href="#" class="link close" style="text-decoration:none; text-align:right; margin-right:7px; margin-top:0px;">[x]</a>
+		</div>
+		<br />
+		<br />
+		<div id="ctl00_NotifDialog_pnlMain" style="text-align:center;">
+			<table border="0" style="height:170px; text-align:center; margin-left:auto; margin-right:auto;">
+				<tr>
+					<td style="text-align:center; vertical-align: bottom; font-size:small;">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table id="ctl00_NotifDialog_tblButtons" class="obj_hor_align_center" cellspacing="200" border="0">
+		<tr id="ctl00_NotifDialog_rowButtons">
+		</tr>
+	</table>
+					</td>
+				</tr>
+			</table>
+</div>
+	</div>
+</div>
+<div id="mask"></div>
+		<div id="ctl00_pnlPage" class="page-wrapper">
+			<div id="ctl00_pnlHead" class="container header_level">
+				<div id="ctl00_pnlDecFirst" class="decor_01">
+		</div>
+				<div id="ctl00_pnlDecSec" class="decor_02">
+					<div class="bg-cian_1 line col-s-8 col-m-8 col-l-8"></div>
+					<div class="bg-gray_1 line col-s-8 col-m-12 col-l-12"></div>
+					<div class="bg-gray_2 line col-s-8 col-m-4 col-l-4"></div>
+		</div>
+				<div id="ctl00_pnlHeaderContent" class="row header_row">
+					<div id="ctl00_pnlLeftHead" class="col-s-24 col-m-8 col-l-8 title_sec">
+						<table id="ctl00_tblHeadLeftPart" border="0">
+					<tr>
+						<td><a id="ctl00_lnkAppName" class="in lk_title" href="./">Личный кабинет</a></td>
+					</tr><tr>
+						<td class="in lk_address">
+									БЦ "<span id="ctl00_lblComplex">Бизнес-квартал IQ-Park</span>"
+									<span id="ctl00_lblComplexAdress">ул. Угрешская., д.2</span><br />
+									<span id="ctl00_lblDogSrok"></span></td>
+					</tr>
+				</table>
+			</div>
+					<div id="ctl00_pnlCenterHead" class="col-s-24 col-m-8 col-l-6 pict_sec">
+			</div>
+					<div id="ctl00_pnlRightHead" class="col-s-24 col-m-8 col-l-10 mesages_sec">
+						<div id="ctl00_pnlRight" class="in txt_welcome">
+							<div id="ctl00_pnlWelcome" class="wlcmtxt">
+								<b class="ic ico_key28_lgr s28"></b>
+								<span id="ctl00_lblWelcome">Добро пожаловать,</span>
+					</div>
+							<span id="ctl00_lblUserName" class="name_welcome">Бусов Олег Васильевич</span>
+							<a id="ctl00_lnkExit" tabindex="101" class="login_link_welcome small" onclick="return _MASTERPAGE.logout()" href="http://www.iqpark-msk.ru/">[выйти из системы]</a>
+				</div>
+						<div id="ctl00_pnlUkPhone" class="in phone_bc font_norm">
+							<div id="ctl00_pnlPhone" class="phone">
+								<span id="ctl00_lblCityPhoneCode" class="clr-cian_1 small">+7 495 </span>
+								<span id="ctl00_lblUkPhone">665-5894</span>
+					</div>
+							<span id="ctl00_lblUk" class="clr-cian_1 small uk">Управляющая компания "SKY Property"</span>
+				</div>
+			</div>
+		</div>
+	</div>
+			<div id="ctl00_pnlBodyContent" class="container body_level">
+				<div id="ctl00_tblBody" class="row">
+					<table id="ctl00_pnlLeftPart" class="col-s-24 col-m-6 col-l-5 sidebar" border="0">
+				<tr>
+					<td><div id="ctl00_pnlLeftMenu">
+									<table id="ctl00_tblLeftMenu" class="row navigation_links_sidebar" border="0">
+							<tr>
+								<td class="nav_elem menu">
+												<b class="ic ico_menu22_cia s22"></b>
+												<span class="title_link"><!-- menu --></span>
+											</td>
+							</tr><tr id="ctl00_trInfo">
+								<td>
+												<a id="lnkInfo" class="nav_elem link" tabindex="100" target="_self" href="information.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link" title="">Информация</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trService">
+								<td>
+												<a id="lnkService" class="nav_elem link" tabindex="100" target="_self" href="GridRequest.aspx?ServicesTypeID=1">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Служба сервиса</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trDopUsl">
+								<td>
+												<a id="lnkDopUsl" class="nav_elem link" tabindex="100" target="_self" href="GridRequest.aspx?ServicesTypeID=2">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Доп. услуги ($)</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trWishes">
+								<td>
+												<a id="lnkWishes" class="nav_elem link" tabindex="100" target="_self" href="GridRequest.aspx?ServicesTypeID=3">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Пожелания</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trPass">
+								<td>
+												<a id="lnkPass" class="nav_elem link" tabindex="100" target="_self" href="orders.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Пропуска</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trContacts">
+								<td>
+												<a id="lnkContacts" class="nav_elem link" tabindex="100" target="_self" href="contacts.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Контакты</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trOpros">
+								<td>
+												<a id="lnkOpros" class="nav_elem link" tabindex="100" target="_self" href="opros.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Опросы</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trHelp">
+								<td>
+												<a id="lnkHelp" class="nav_elem link" tabindex="100" target="_self" href="help.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Справка</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trAccess">
+								<td>
+												<a id="lnkAccess" class="nav_elem link" tabindex="100" target="_self" href="access.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Доступ</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trAdvert">
+								<td>
+												<a id="lnkAdvert" class="nav_elem link" tabindex="100" target="_self" href="information.aspx?is_advert=1">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Реклама</span>
+												</a>
+											</td>
+							</tr><tr id="ctl00_trMessages">
+								<td>
+												<a id="lnkMessages" class="nav_elem link" tabindex="100" target="_self" href="messages.aspx">
+													<b class="decor"></b>
+													<b class="bullet s8"></b>
+													<span class="title_link">Сообщения</span>
+												</a>
+											</td>
+							</tr>
+						</table>
+					</div></td>
+				</tr><tr>
+					<td><div id="ctl00_pnlAdvertBars" class="row banners">
+									<table id="ctl00_tblAdvertBars" border="0">
+							<tr>
+								<td class="banner banner_200_200"><a id="ctl00_lnkAdvertFirst"></a></td>
+							</tr><tr>
+								<td class="banner banner_200_200"><a id="ctl00_lnkAdvertSecond"></a></td>
+							</tr>
+						</table>
+					</div></td>
+				</tr>
+			</table>
+					<div class="col-s-24 col-m-18 col-l-19 content pll">
+	<link rel="stylesheet" type="text/css" href="Scripts/Datepick/jquery.datepick.css?v=1">
+	<link rel="stylesheet" type="text/css" href="css/datepicker.css?v=1">
+	<link rel="stylesheet" type="text/css" href="css/new_order.css?v=1">
+	<script type="text/javascript" src="Scripts/Datepick/jquery.plugin.js?v=1"></script>
+	<script type="text/javascript" src="Scripts/Datepick/jquery.datepick.js?v=1"></script>
+	<script type="text/javascript" src="Scripts/Datepick/jquery.datepick-ru.js?v=1"></script>
+	<script type="text/javascript" src="Scripts/NewOrder.js?v=1"></script>
+	<script type="text/javascript">
+		function OnClientAsyncFileUploadComplete(sender, args) {
+			document.getElementById('ctl00_PageContent_ImgPhoto').setAttribute('src', 's_image.ashx' + '?id=' + _NEWORDER.getRandomNumber());
+			__doPostBack('__Page', '');
+		}
+		$(document).ready(
+			function () {
+				_MASTERPAGE.hideElemScroll('CmbPassType');
+				_MASTERPAGE.hideElemScroll('CmbPersonType');
+				_NEWORDER.init(
+					$('table[id=' + 'ctl00_PageContent_CmbPassType' + '] td input'),
+					$('#' + 'ctl00_PageContent_HfPassType'),
+					$('#' + 'ctl00_PageContent_TrIsAgatCashPass'),
+					$('#' + 'ctl00_PageContent_CbxIsAgatCashPass'),
+					$('table[id=' + 'ctl00_PageContent_CmbAccessType' + '] td input'),
+					$('table[id=' + 'ctl00_PageContent_CmbCarType' + '] td input'),
+					$('#' + 'ctl00_PageContent_ImgPhoto'),
+					$('#' + 'ctl00_PageContent_HfUserComplex').val(),
+					$('#' + 'ctl00_PageContent_HfUserEppCustomer').val(),
+					$('#' + 'ctl00_PageContent_VlBirthDate').text('*'),
+					$('#' + 'ctl00_PageContent_VlDocType').text('*'),
+					$('#' + 'ctl00_PageContent_VlDocAddress').text('*'),
+					$('#' + 'ctl00_PageContent_TbxWay'),
+					$('#' + 'ctl00_PageContent_LblWayCount'),
+					$('#' + 'ctl00_PageContent_HfSelectedDates'),
+					$('#tdPassDate'),
+					new Date(2019,5,19));
+				_NEWORDER.setStartFieldValues();
+				_NEWORDER.showOfficeInfoFields();
+				_NEWORDER.deSerializeSelectedDates();
+			}
+		);
+	</script>
+	<div class="row title_section">
+		<div class="col-s-24 col-m-24 col-l-24 pan">
+			<h2>Заявка на выдачу пропуска</h2>
+		</div>
+	</div>
+	<span id="JavascriptNotAvailableMessage" style="color: red; font-weight: bold">
+		В Вашем браузере заблокировано выполнение javascript-сценариев для этой страницы.<br />
+		Для ее корректной работы выполнение javascript-сценариев должно быть разблокировано.
+	</span>
+	<script type="text/javascript">
+		document.getElementById('JavascriptNotAvailableMessage').style.display = 'none';
+	</script>
+	<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$PageContent$Sm', 'aspnetForm', ['tctl00$PageContent$UpPhoto','','tctl00$PageContent$UpScan',''], [], [], 90, 'ctl00');
+				//]]>
+</script>
+	<input type="hidden" name="ctl00$PageContent$HfPassType" id="ctl00_PageContent_HfPassType" />
+	<input type="hidden" name="ctl00$PageContent$HfUserComplex" id="ctl00_PageContent_HfUserComplex" value="29" />
+	<input type="hidden" name="ctl00$PageContent$HfUserEppCustomer" id="ctl00_PageContent_HfUserEppCustomer" value="0" />
+	<input type="hidden" name="ctl00$PageContent$HfSelectedDates" id="ctl00_PageContent_HfSelectedDates" />
+	<br /><br />
+	<table id="tblMain" cellpadding="2" cellspacing="3">
+		<tr class="clsPassDate">
+			<td id="tdPassDate" class="text_middle">Дата пропуска&nbsp;:</td>
+			<td class="control_middle">
+				<table>
+					<tr>
+						<td><div id="inputDate"></div></td>
+						<td>&nbsp;</td>
+						<td style="vertical-align:top">
+							<div>С помощью календаря Вы можете создавать заявки на пропуска на несколько дат.</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Фамилия&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<script id="dxis_1185909245" src="/DXR.axd?r=1_49" type="text/javascript"></script><script id="dxis_1272548518" src="/DXR.axd?r=2_14" type="text/javascript"></script><script id="dxis_1456334837" src="/DXR.axd?r=2_13" type="text/javascript"></script><script id="dxis_668811931" src="/DXR.axd?r=2_8" type="text/javascript"></script><script id="dxis_1993312804" src="/DXR.axd?r=1_46" type="text/javascript"></script><script id="dxis_1185778173" src="/DXR.axd?r=1_29" type="text/javascript"></script><script id="dxis_1675833045" src="/DXR.axd?r=2_11" type="text/javascript"></script><script id="dxis_23944336" src="/DXR.axd?r=1_42" type="text/javascript"></script><script id="dxis_668877467" src="/DXR.axd?r=2_7" type="text/javascript"></script>
+				<script id="dxss_882636380" type="text/javascript">
+<!--
+window.__aspxServerFormID = 'aspnetForm';
+window.__aspxEmptyImageUrl = '/DXR.axd?r=1_16';
+//-->
+</script>
+				<script id="dxss_201607612" type="text/javascript">
+<!--
+var trialNode = document.createElement('DIV');
+document.body.insertBefore(trialNode, document.body.childNodes[0]);
+trialNode.innerHTML = 'This application was created using the TRIAL version of DevExpress ASP.NET Controls.<br>';
+trialNode.innerHTML += 'Visit <a href="http://www.devexpress.com">www.devexpress.com</a> to obtain a licensed copy.';
+trialNode.style.margin = 5;
+trialNode.style.position = 'absolute';
+trialNode.style.left = 0;
+trialNode.style.top = 0;
+trialNode.style.zIndex = 100000;
+trialNode.style.fontFamily = 'tahoma';
+trialNode.style.fontSize = '8pt';
+trialNode.style.color = 'red';
+//-->
+</script>
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxFirstName" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxFirstName_I" name="ctl00$PageContent$TbxFirstName" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxFirstName&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxFirstName&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1140158836" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxFirstName');
+window['ctl00_PageContent_TbxFirstName'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxFirstName';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Имя&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxSecondName" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxSecondName_I" name="ctl00$PageContent$TbxSecondName" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxSecondName&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxSecondName&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1264886341" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxSecondName');
+window['ctl00_PageContent_TbxSecondName'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxSecondName';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Отчество&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxMiddleName" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxMiddleName_I" name="ctl00$PageContent$TbxMiddleName" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxMiddleName&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxMiddleName&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_2033292098" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxMiddleName');
+window['ctl00_PageContent_TbxMiddleName'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxMiddleName';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Тип пропуска&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbPassType" border="0" style="width:100%;border-collapse:separate;overflow:hidden;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbPassType_VI" name="ctl00_PageContent_CmbPassType_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbPassType&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbPassType" value="--- выберите ---" id="ctl00_PageContent_CmbPassType_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbPassType&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbPassType&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbPassType&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbPassType_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbPassType&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbPassType_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbPassType_DDDWS" name="ctl00_PageContent_CmbPassType_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbPassType_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbPassType_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbPassType_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbPassType_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbPassType_DDD_PWC-1" style="height:100%;"><input type="hidden" id="ctl00_PageContent_CmbPassType_DDD_LDeletedItems" name="ctl00_PageContent_CmbPassType_DDD_LDeletedItems" value="" />
+									<input type="hidden" id="ctl00_PageContent_CmbPassType_DDD_LInsertedItems" name="ctl00_PageContent_CmbPassType_DDD_LInsertedItems" value="" />
+									<input type="hidden" id="ctl00_PageContent_CmbPassType_DDD_LCustomCallback" name="ctl00_PageContent_CmbPassType_DDD_LCustomCallback" value="" />
+									<table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbPassType_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbPassType_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbPassType_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbPassType$DDD$L" /><table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;visibility:hidden!important;display:none!important;">
+													<tr id="ctl00_PageContent_CmbPassType_DDD_L_LBI-1" class="dxeListBoxItemRow_LK2015">
+														<td id="ctl00_PageContent_CmbPassType_DDD_L_LBII" class="dxeListBoxItem_LK2015">&nbsp;</td>
+													</tr>
+												</table><table id="ctl00_PageContent_CmbPassType_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">--- выберите ---</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">разовый пропуск на посетителя</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">разовый пропуск на автотранспорт</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_792095914" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbPassType_DDD_L');
+window['ctl00_PageContent_CmbPassType_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbPassType$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbPassType_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbPassType', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbPassType', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[0,2,4];
+dxo.isComboBoxList = true;
+dxo.hasSampleItem = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_730350666" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbPassType_DDD');
+window['ctl00_PageContent_CmbPassType_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbPassType$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbPassType', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<table id="ctl00_PageContent_CmbPassType_LP" class="dxeLoadingPanel_LK2015" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;left:0px;top:0px;z-index:30000;display:none;">
+					<tr>
+						<td class="dx" style="padding-right:8px;"><img src="/DXR.axd?r=0_1356" alt="" align="middle" style="border-width:0px;border-width:0px;" /></td><td class="dx" style="padding-left:0px;">Loading&hellip;</td>
+					</tr>
+				</table><div id="ctl00_PageContent_CmbPassType_LD" class="dxeLoadingDiv_LK2015" style="left:0px;top:0px;z-index:29999;display:none;position:absolute;">
+				</div><script id="dxss_380563459" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbPassType_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbPassType',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbPassType',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbPassType');
+window['ctl00_PageContent_CmbPassType'] = dxo;
+dxo.callBack = function(arg) { WebForm_DoCallback('ctl00$PageContent$CmbPassType',arg,aspxCallback,'ctl00_PageContent_CmbPassType',aspxCallbackError,true); };
+dxo.uniqueID = 'ctl00$PageContent$CmbPassType';
+aspxAddDisabledItems('ctl00_PageContent_CmbPassType',[[['dxeDisabled_LK2015'],[''],['','I']],[['dxeDisabled_LK2015 dxeButtonDisabled_LK2015'],[''],['B-1'],,[[{'spriteCssClass':'dxEditors_edtDropDownDisabled_LK2015'}]],['Img']]]);
+dxo.SelectedIndexChanged.AddHandler(_NEWORDER.setStartFieldValues);
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Комплекс&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbComplexSelect" border="0" style="width:100%;border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbComplexSelect_VI" name="ctl00_PageContent_CmbComplexSelect_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbComplexSelect&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbComplexSelect" value="Бизнес-квартал IQ-Park" id="ctl00_PageContent_CmbComplexSelect_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbComplexSelect&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbComplexSelect&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbComplexSelect&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbComplexSelect_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbComplexSelect&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbComplexSelect_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbComplexSelect_DDDWS" name="ctl00_PageContent_CmbComplexSelect_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbComplexSelect_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbComplexSelect_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbComplexSelect_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbComplexSelect_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbComplexSelect_DDD_PWC-1" style="height:100%;"><table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbComplexSelect_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbComplexSelect_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbComplexSelect_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbComplexSelect$DDD$L" /><table id="ctl00_PageContent_CmbComplexSelect_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Бизнес-квартал IQ-Park</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_1217494640" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbComplexSelect_DDD_L');
+window['ctl00_PageContent_CmbComplexSelect_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbComplexSelect$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbComplexSelect_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbComplexSelect', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbComplexSelect', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[29];
+dxo.isComboBoxList = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_1604688463" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbComplexSelect_DDD');
+window['ctl00_PageContent_CmbComplexSelect_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbComplexSelect$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbComplexSelect', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_1086271116" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbComplexSelect_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbComplexSelect',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbComplexSelect',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbComplexSelect');
+window['ctl00_PageContent_CmbComplexSelect'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbComplexSelect';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="office">
+			<td class="text_middle">Строение&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxBuilding" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxBuilding_I" name="ctl00$PageContent$TbxBuilding" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxBuilding&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxBuilding&#39;)" value="35" type="text" maxlength="10" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_454382194" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxBuilding');
+window['ctl00_PageContent_TbxBuilding'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxBuilding';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="office">
+			<td class="text_middle">Этаж&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxFloor" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxFloor_I" name="ctl00$PageContent$TbxFloor" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxFloor&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxFloor&#39;)" value="5" type="text" maxlength="10" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1163658818" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxFloor');
+window['ctl00_PageContent_TbxFloor'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxFloor';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+					<span id="ctl00_PageContent_RevFloor" style="color:Red;display:none;">Некорректный этаж</span>
+			</td>
+		</tr>
+		<tr class="office">
+			<td class="text_middle">Офис&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxOffice" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxOffice_I" name="ctl00$PageContent$TbxOffice" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxOffice&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxOffice&#39;)" value="505" type="text" maxlength="10" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1353194573" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxOffice');
+window['ctl00_PageContent_TbxOffice'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxOffice';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="office">
+			<td class="text_middle">Как дойти&nbsp;:</td>
+			<td class="control_middle">
+				<textarea name="ctl00$PageContent$TbxWay" rows="2" cols="20" id="ctl00_PageContent_TbxWay" title="Кратко опишите маршрут до Вашего офиса, чтобы посетителю было легче найти Вас" class="dxeMemoEditArea_LK2015" placeholder="Кратко опишите маршрут до Вашего офиса, чтобы посетителю было легче найти Вас" style="border-color:#9F9F9F;border-width:1px;border-style:solid;height:70px;width:100%;">
+</textarea>
+				<span id="ctl00_PageContent_LblWayCount"></span>
+				<br />
+				<span id="ctl00_PageContent_RevWay" style="color:Red;display:none;">Число символов не должно превышать 185.</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Отношение к организации&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbPersonType" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbPersonType_VI" name="ctl00_PageContent_CmbPersonType_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbPersonType&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbPersonType" value="-- выберите --" id="ctl00_PageContent_CmbPersonType_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbPersonType&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbPersonType&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbPersonType&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbPersonType_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbPersonType&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbPersonType_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbPersonType_DDDWS" name="ctl00_PageContent_CmbPersonType_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbPersonType_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbPersonType_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbPersonType_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbPersonType_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbPersonType_DDD_PWC-1" style="height:100%;"><table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbPersonType_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbPersonType_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbPersonType_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbPersonType$DDD$L" /><table id="ctl00_PageContent_CmbPersonType_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">-- выберите --</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">сотрудник</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">посетитель</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_271428416" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbPersonType_DDD_L');
+window['ctl00_PageContent_CmbPersonType_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbPersonType$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbPersonType_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbPersonType', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbPersonType', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[0,1,2];
+dxo.isComboBoxList = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_1217207837" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbPersonType_DDD');
+window['ctl00_PageContent_CmbPersonType_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbPersonType$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbPersonType', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_656435529" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbPersonType_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbPersonType',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbPersonType',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbPersonType');
+window['ctl00_PageContent_CmbPersonType'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbPersonType';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_top">
+				Дата рождения&nbsp;<span id="ctl00_PageContent_VlBirthDate" style="color:Red;">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<input type="hidden" id="ctl00_PageContent_DbxBirthDate_Raw" name="ctl00_PageContent_DbxBirthDate_Raw" value="N" />
+				<script id="dxss_403351645" type="text/javascript">
+<!--
+(function(){var a = ({'currency':'р.','shortDate':'dd.MM.yyyy','yearMonth':'MMMM yyyy','numNegInf':'-бесконечность','currGroupSeparator':' ','am':'','currPosPattern':1,'longTime':'H:mm:ss','genMonthNames':['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря',''],'currNegPattern':5,'numPosInf':'бесконечность','abbrDayNames':['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],'percentPattern':1,'numDecimalPoint':',','shortTime':'H:mm','abbrGenMonthNames':['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек',''],'monthNames':['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь',''],'pm':'','numGroupSeparator':' ','longDate':'d MMMM yyyy \'г.\'','ds':'.','currDecimalPoint':',','dayNames':['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота']});for(var b in a) __aspxCultureInfo[b] = a[b];})();
+//-->
+</script>
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_DbxBirthDate" border="0" style="width:170px;border-collapse:separate;">
+					<tr>
+						<td class="dxic" onmousedown="return aspxDDCloseUp(&#39;ctl00_PageContent_DbxBirthDate&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_DbxBirthDate_I" name="ctl00$PageContent$DbxBirthDate" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_DbxBirthDate&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_DbxBirthDate&#39;)" onchange="aspxETextChanged(&#39;ctl00_PageContent_DbxBirthDate&#39;)" onkeyup="aspxEKeyUp(&#39;ctl00_PageContent_DbxBirthDate&#39;, event)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_DbxBirthDate_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_DbxBirthDate&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_DbxBirthDate_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_DbxBirthDate_DDDWS" name="ctl00_PageContent_DbxBirthDate_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_DbxBirthDate_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_DbxBirthDate_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_DbxBirthDate_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_DbxBirthDate_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_DbxBirthDate_DDD_PWC-1" style="height:100%;"><table border="0" style="display:none;">
+										<tr>
+											<td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_D" class="dxeCalendarDay_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_DS" class="dxeCalendarSelected_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_DA" class="dxeCalendarOtherMonth_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_DW" class="dxeCalendarWeekend_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_DO" class="dxeCalendarOutOfRange_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_DT" class="dxeCalendarToday_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_DD" class="dxeDisabled_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_FNM" class="dxeCalendarFastNavMonth_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_FNMS" class="dxeCalendarFastNavMonthSelected_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_FNY" class="dxeCalendarFastNavYear_LK2015"></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_EC_FNYS" class="dxeCalendarFastNavYearSelected_LK2015"></td>
+										</tr>
+									</table><table class="dxeCalendar_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_DbxBirthDate_DDD_C" border="0" style="border-collapse:collapse;">
+										<tr>
+											<td valign="top"><table cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+												<tr>
+													<td class="dxeCalendarHeader_LK2015" style="border-top:0;"><table cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+														<tr>
+															<td id="ctl00_PageContent_DbxBirthDate_DDD_C_PYC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, -12);"><img id="ctl00_PageContent_DbxBirthDate_DDD_C_PYCImg" class="dxEditors_edtCalendarPrevYear_LK2015" src="/DXR.axd?r=1_16" alt="&lt;&lt;" style="border-width:0px;border-width:0px;" /></td><td><div style="width:10px;font-size:0px;">
+															</div></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_PMC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, -1);"><img id="ctl00_PageContent_DbxBirthDate_DDD_C_PMCImg" class="dxEditors_edtCalendarPrevMonth_LK2015" src="/DXR.axd?r=1_16" alt="&lt;" style="border-width:0px;border-width:0px;" /></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_TC" class="dxe" style="width:100%;cursor:default;"><span id="ctl00_PageContent_DbxBirthDate_DDD_C_T" onclick="aspxCalTitleClick(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, 0, 0)" style="cursor:pointer;">Июнь 2019</span></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_NMC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, 1);"><img id="ctl00_PageContent_DbxBirthDate_DDD_C_NMCImg" class="dxEditors_edtCalendarNextMonth_LK2015" src="/DXR.axd?r=1_16" alt=">" style="border-width:0px;border-width:0px;" /></td><td><div style="width:10px;font-size:0px;">
+															</div></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_NYC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, 12);"><img id="ctl00_PageContent_DbxBirthDate_DDD_C_NYCImg" class="dxEditors_edtCalendarNextYear_LK2015" src="/DXR.axd?r=1_16" alt=">>" style="border-width:0px;border-width:0px;" /></td>
+														</tr>
+													</table></td>
+												</tr><tr>
+													<td id="ctl00_PageContent_DbxBirthDate_DDD_C_mc" class="dxMonthGridWithWeekNumbers" style="-khtml-user-select:none;"><table id="ctl00_PageContent_DbxBirthDate_DDD_C_mt" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+														<tr align="center">
+															<td></td><td class="dxeCalendarDayHeader_LK2015">Пн</td><td class="dxeCalendarDayHeader_LK2015">Вт</td><td class="dxeCalendarDayHeader_LK2015">Ср</td><td class="dxeCalendarDayHeader_LK2015">Чт</td><td class="dxeCalendarDayHeader_LK2015">Пт</td><td class="dxeCalendarDayHeader_LK2015">Сб</td><td class="dxeCalendarDayHeader_LK2015">Вс</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber_LK2015">22</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">27</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">28</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">29</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">30</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">31</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">1</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">2</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber_LK2015">23</td><td class="dxeCalendarDay_LK2015">3</td><td class="dxeCalendarDay_LK2015">4</td><td class="dxeCalendarDay_LK2015">5</td><td class="dxeCalendarDay_LK2015">6</td><td class="dxeCalendarDay_LK2015">7</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">8</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">9</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber_LK2015">24</td><td class="dxeCalendarDay_LK2015">10</td><td class="dxeCalendarDay_LK2015">11</td><td class="dxeCalendarDay_LK2015">12</td><td class="dxeCalendarDay_LK2015">13</td><td class="dxeCalendarDay_LK2015">14</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">15</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">16</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber_LK2015">25</td><td class="dxeCalendarDay_LK2015">17</td><td class="dxeCalendarDay_LK2015">18</td><td class="dxeCalendarDay_LK2015 dxeCalendarToday_LK2015">19</td><td class="dxeCalendarDay_LK2015">20</td><td class="dxeCalendarDay_LK2015">21</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">22</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">23</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber_LK2015">26</td><td class="dxeCalendarDay_LK2015">24</td><td class="dxeCalendarDay_LK2015">25</td><td class="dxeCalendarDay_LK2015">26</td><td class="dxeCalendarDay_LK2015">27</td><td class="dxeCalendarDay_LK2015">28</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">29</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015">30</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber_LK2015">27</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">1</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">2</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">3</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">4</td><td class="dxeCalendarDay_LK2015 dxeCalendarOtherMonth_LK2015">5</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015 dxeCalendarOtherMonth_LK2015">6</td><td class="dxeCalendarDay_LK2015 dxeCalendarWeekend_LK2015 dxeCalendarOtherMonth_LK2015">7</td>
+														</tr>
+													</table></td>
+												</tr>
+											</table></td>
+										</tr><tr>
+											<td class="dxeCalendarFooter_LK2015"><table cellpadding="0" align="center" border="0" style="border-collapse:collapse;">
+												<tr>
+													<td><table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+														<tr>
+															<td id="ctl00_PageContent_DbxBirthDate_DDD_C_BT" class="dxeCalendarButton_LK2015" onclick="aspxCalTodayClick(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;);"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																<tr>
+																	<td class="dx" style="width:100%;">Today</td>
+																</tr>
+															</table></td>
+														</tr>
+													</table></td><td><div style="width:11px;font-size:0px;">
+													</div></td><td><table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+														<tr>
+															<td id="ctl00_PageContent_DbxBirthDate_DDD_C_BC" class="dxeCalendarButton_LK2015" onclick="aspxCalClearClick(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;);"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																<tr>
+																	<td class="dx" style="width:100%;">Clear</td>
+																</tr>
+															</table></td>
+														</tr>
+													</table></td>
+												</tr>
+											</table></td>
+										</tr>
+									</table><input type="hidden" id="ctl00_PageContent_DbxBirthDate_DDD_C_FNPWS" name="ctl00_PageContent_DbxBirthDate_DDD_C_FNPWS" value="0:0:-1:0:0:0:0:0:" />
+									<div id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+										<table id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+											<tr>
+												<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_DbxBirthDate_DDD_C_FNP&#39;,-1,false)" style="width:0px;cursor:default;"><table id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:0px;border-collapse:collapse;border-collapse:separate;">
+													<tr>
+														<td id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_PWC-1" style="height:100%;"><div class="dxeCalendarFastNav_LK2015">
+															<div class="dxeCalendarFastNavMonthArea_LK2015">
+																<table id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_m" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+																	<tr>
+																		<td class="dxeCalendarFastNavMonth_LK2015">Янв</td><td class="dxeCalendarFastNavMonth_LK2015">Фев</td><td class="dxeCalendarFastNavMonth_LK2015">Мар</td><td class="dxeCalendarFastNavMonth_LK2015">Апр</td>
+																	</tr><tr>
+																		<td class="dxeCalendarFastNavMonth_LK2015">Май</td><td class="dxeCalendarFastNavMonth_LK2015">Июн</td><td class="dxeCalendarFastNavMonth_LK2015">Июл</td><td class="dxeCalendarFastNavMonth_LK2015">Авг</td>
+																	</tr><tr>
+																		<td class="dxeCalendarFastNavMonth_LK2015">Сен</td><td class="dxeCalendarFastNavMonth_LK2015">Окт</td><td class="dxeCalendarFastNavMonth_LK2015">Ноя</td><td class="dxeCalendarFastNavMonth_LK2015">Дек</td>
+																	</tr>
+																</table>
+															</div><div class="dxeCalendarFastNavYearArea_LK2015">
+																<table id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_y" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;margin-top:8px;">
+																	<tr>
+																		<td onclick="aspxCalFNYShuffle(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, -10)" rowspan="2" style="padding-right:8px;cursor:pointer;"><img class="dxEditors_edtCalendarFNPrevYear_LK2015" src="/DXR.axd?r=1_16" alt="&lt;" style="border-width:0px;border-width:0px;" /></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td onclick="aspxCalFNYShuffle(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, 10)" rowspan="2" style="padding-left:8px;cursor:pointer;"><img class="dxEditors_edtCalendarFNNextYear_LK2015" src="/DXR.axd?r=1_16" alt=">" style="border-width:0px;border-width:0px;" /></td>
+																	</tr><tr>
+																		<td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td><td class="dxeCalendarFastNavYear_LK2015"></td>
+																	</tr>
+																</table>
+															</div>
+														</div><div class="dxeCalendarFastNavFooter_LK2015" style="text-align:center;">
+															<table cellspacing="0" cellpadding="0" align="center" border="0" style="border-collapse:collapse;">
+																<tr>
+																	<td id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_BO" class="dxeCalendarButton_LK2015" onclick="aspxCalFNBClick(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, &#39;ok&#39;)"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																		<tr>
+																			<td class="dx" style="width:100%;">OK</td>
+																		</tr>
+																	</table></td><td><div style="width:11px;">
+																	</div></td><td id="ctl00_PageContent_DbxBirthDate_DDD_C_FNP_BC" class="dxeCalendarButton_LK2015" onclick="aspxCalFNBClick(&#39;ctl00_PageContent_DbxBirthDate_DDD_C&#39;, &#39;cancel&#39;)"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																		<tr>
+																			<td class="dx" style="width:100%;">Cancel</td>
+																		</tr>
+																	</table></td>
+																</tr>
+															</table>
+														</div></td>
+													</tr>
+												</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+											</tr><tr>
+												<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+											</tr>
+										</table>
+									</div><script id="dxss_232682845" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_DbxBirthDate_DDD_C_FNP');
+window['ctl00_PageContent_DbxBirthDate_DDD_C_FNP'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$DbxBirthDate$DDD$C$FNP';
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.isPopupPositionCorrectionOn=false;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<input id="ctl00_PageContent_DbxBirthDate_DDD_C_STATE" name="ctl00$PageContent$DbxBirthDate$DDD$C" type="hidden" /><script id="dxss_290133072" type="text/javascript">
+<!--
+aspxAddHoverItems('ctl00_PageContent_DbxBirthDate_DDD_C',[[['dxeCalendarButtonHover_LK2015'],[''],['BT','BC','FNP_BO','FNP_BC']],[['dxeCalendarFastNavMonthHover_LK2015'],[''],['FNP_M0','FNP_M1','FNP_M2','FNP_M3','FNP_M4','FNP_M5','FNP_M6','FNP_M7','FNP_M8','FNP_M9','FNP_M10','FNP_M11']],[['dxeCalendarFastNavYearHover_LK2015'],[''],['FNP_Y0','FNP_Y1','FNP_Y2','FNP_Y3','FNP_Y4','FNP_Y5','FNP_Y6','FNP_Y7','FNP_Y8','FNP_Y9']]]);
+aspxAddPressedItems('ctl00_PageContent_DbxBirthDate_DDD_C',[[['dxeCalendarButtonPressed_LK2015'],[''],['BT','BC','FNP_BO','FNP_BC']]]);
+var dxo = new ASPxClientCalendar('ctl00_PageContent_DbxBirthDate_DDD_C');
+window['ctl00_PageContent_DbxBirthDate_DDD_C'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$DbxBirthDate$DDD$C';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.visibleDate = new Date(2019,5,19);
+dxo.firstDayOfWeek = 1;
+dxo.isDateEditCalendar = true;
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_71185927" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_DbxBirthDate_DDD');
+window['ctl00_PageContent_DbxBirthDate_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$DbxBirthDate$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_DbxBirthDate', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_72025993" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_DbxBirthDate_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_DbxBirthDate',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_DbxBirthDate',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientDateEdit('ctl00_PageContent_DbxBirthDate');
+window['ctl00_PageContent_DbxBirthDate'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$DbxBirthDate';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.dateFormatter = ASPxDateFormatter.Create('dd.MM.yyyy');
+dxo.InlineInitialize();
+//-->
+</script>
+				<span id="ctl00_PageContent_CvBirthDate" style="color:Red;visibility:hidden;">Неверная дата</span>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">&nbsp;Тип документа&nbsp;<span id="ctl00_PageContent_VlDocType" style="color:Red;">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbDocType" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbDocType_VI" name="ctl00_PageContent_CmbDocType_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbDocType&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbDocType" value="---выберите---" id="ctl00_PageContent_CmbDocType_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbDocType&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbDocType&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbDocType&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbDocType_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbDocType&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbDocType_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbDocType_DDDWS" name="ctl00_PageContent_CmbDocType_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbDocType_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbDocType_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbDocType_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbDocType_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbDocType_DDD_PWC-1" style="height:100%;"><table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbDocType_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbDocType_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbDocType_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbDocType$DDD$L" /><table id="ctl00_PageContent_CmbDocType_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">---выберите---</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">паспорт гражданина РФ</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">паспорт иностранного гражданина</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">водительское удостоверение</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">удостоверение личности военнослужащего</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">социальная карта &#171;москвича&#187;</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">пенсионное удостоверение</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">справка об утере паспорта</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">вид на жительство</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_1628723877" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbDocType_DDD_L');
+window['ctl00_PageContent_CmbDocType_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbDocType$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbDocType_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbDocType', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbDocType', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[0,1,2,3,4,5,6,7,8];
+dxo.isComboBoxList = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_515816526" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbDocType_DDD');
+window['ctl00_PageContent_CmbDocType_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbDocType$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbDocType', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_166618698" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbDocType_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbDocType',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbDocType',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbDocType');
+window['ctl00_PageContent_CmbDocType'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbDocType';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">&nbsp;Серия документа&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxDocSeriya" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxDocSeriya_I" name="ctl00$PageContent$TbxDocSeriya" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxDocSeriya&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxDocSeriya&#39;)" type="text" maxlength="50" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1059211609" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxDocSeriya');
+window['ctl00_PageContent_TbxDocSeriya'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocSeriya';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">&nbsp;Номер документа&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxDocNumber" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxDocNumber_I" name="ctl00$PageContent$TbxDocNumber" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxDocNumber&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxDocNumber&#39;)" type="text" maxlength="50" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_2056732736" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxDocNumber');
+window['ctl00_PageContent_TbxDocNumber'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocNumber';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">Кем выдан&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxDocOrg" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxDocOrg_I" name="ctl00$PageContent$TbxDocOrg" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxDocOrg&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxDocOrg&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1453247410" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxDocOrg');
+window['ctl00_PageContent_TbxDocOrg'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocOrg';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">Когда выдан&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<input type="hidden" id="ctl00_PageContent_TbxDocDate_Raw" name="ctl00_PageContent_TbxDocDate_Raw" value="N" />
+				<table class="dxeButtonEdit" cellspacing="1" cellpadding="0" id="ctl00_PageContent_TbxDocDate" border="0" style="width:106px;border-collapse:separate;">
+					<tr>
+						<td class="dxic" onmousedown="return aspxDDCloseUp(&#39;ctl00_PageContent_TbxDocDate&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea" id="ctl00_PageContent_TbxDocDate_I" name="ctl00$PageContent$TbxDocDate" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxDocDate&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxDocDate&#39;)" onchange="aspxETextChanged(&#39;ctl00_PageContent_TbxDocDate&#39;)" onkeyup="aspxEKeyUp(&#39;ctl00_PageContent_TbxDocDate&#39;, event)" type="text" style="border-width:0px;font-family:Verdana;font-size:12px;font-weight:normal;text-decoration:none;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_TbxDocDate_B-1" class="dxeButtonEditButton" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_TbxDocDate&#39;, event)" style="font-family:Verdana;font-size:12px;font-weight:normal;text-decoration:none;-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_TbxDocDate_B-1Img" class="dxEditors_edtDropDown" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_TbxDocDate_DDDWS" name="ctl00_PageContent_TbxDocDate_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_TbxDocDate_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_TbxDocDate_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_TbxDocDate_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_TbxDocDate_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_TbxDocDate_DDD_PWC-1" style="height:100%;"><table border="0" style="display:none;">
+										<tr>
+											<td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_D" class="dxeCalendarDay"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_DS" class="dxeCalendarSelected"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_DA" class="dxeCalendarOtherMonth"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_DW" class="dxeCalendarWeekend"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_DO" class="dxeCalendarOutOfRange"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_DT" class="dxeCalendarToday"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_DD" class="dxeDisabled"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_FNM" class="dxeCalendarFastNavMonth"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_FNMS" class="dxeCalendarFastNavMonthSelected"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_FNY" class="dxeCalendarFastNavYear"></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_EC_FNYS" class="dxeCalendarFastNavYearSelected"></td>
+										</tr>
+									</table><table class="dxeCalendar" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxDocDate_DDD_C" border="0" style="border-collapse:collapse;">
+										<tr>
+											<td valign="top"><table cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+												<tr>
+													<td class="dxeCalendarHeader" style="border-top:0;"><table cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+														<tr>
+															<td id="ctl00_PageContent_TbxDocDate_DDD_C_PYC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, -12);"><img id="ctl00_PageContent_TbxDocDate_DDD_C_PYCImg" class="dxEditors_edtCalendarPrevYear" src="/DXR.axd?r=1_16" alt="&lt;&lt;" style="border-width:0px;border-width:0px;" /></td><td><div style="width:10px;font-size:0px;">
+															</div></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_PMC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, -1);"><img id="ctl00_PageContent_TbxDocDate_DDD_C_PMCImg" class="dxEditors_edtCalendarPrevMonth" src="/DXR.axd?r=1_16" alt="&lt;" style="border-width:0px;border-width:0px;" /></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_TC" class="dxe" style="width:100%;cursor:default;"><span id="ctl00_PageContent_TbxDocDate_DDD_C_T" onclick="aspxCalTitleClick(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, 0, 0)" style="cursor:pointer;">Июнь 2019</span></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_NMC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, 1);"><img id="ctl00_PageContent_TbxDocDate_DDD_C_NMCImg" class="dxEditors_edtCalendarNextMonth" src="/DXR.axd?r=1_16" alt=">" style="border-width:0px;border-width:0px;" /></td><td><div style="width:10px;font-size:0px;">
+															</div></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_NYC" class="dxe" onclick="aspxCalShiftMonth(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, 12);"><img id="ctl00_PageContent_TbxDocDate_DDD_C_NYCImg" class="dxEditors_edtCalendarNextYear" src="/DXR.axd?r=1_16" alt=">>" style="border-width:0px;border-width:0px;" /></td>
+														</tr>
+													</table></td>
+												</tr><tr>
+													<td id="ctl00_PageContent_TbxDocDate_DDD_C_mc" class="dxMonthGridWithWeekNumbers" style="-khtml-user-select:none;"><table id="ctl00_PageContent_TbxDocDate_DDD_C_mt" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+														<tr align="center">
+															<td></td><td class="dxeCalendarDayHeader">Пн</td><td class="dxeCalendarDayHeader">Вт</td><td class="dxeCalendarDayHeader">Ср</td><td class="dxeCalendarDayHeader">Чт</td><td class="dxeCalendarDayHeader">Пт</td><td class="dxeCalendarDayHeader">Сб</td><td class="dxeCalendarDayHeader">Вс</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber">22</td><td class="dxeCalendarDay dxeCalendarOtherMonth">27</td><td class="dxeCalendarDay dxeCalendarOtherMonth">28</td><td class="dxeCalendarDay dxeCalendarOtherMonth">29</td><td class="dxeCalendarDay dxeCalendarOtherMonth">30</td><td class="dxeCalendarDay dxeCalendarOtherMonth">31</td><td class="dxeCalendarDay dxeCalendarWeekend">1</td><td class="dxeCalendarDay dxeCalendarWeekend">2</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber">23</td><td class="dxeCalendarDay">3</td><td class="dxeCalendarDay">4</td><td class="dxeCalendarDay">5</td><td class="dxeCalendarDay">6</td><td class="dxeCalendarDay">7</td><td class="dxeCalendarDay dxeCalendarWeekend">8</td><td class="dxeCalendarDay dxeCalendarWeekend">9</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber">24</td><td class="dxeCalendarDay">10</td><td class="dxeCalendarDay">11</td><td class="dxeCalendarDay">12</td><td class="dxeCalendarDay">13</td><td class="dxeCalendarDay">14</td><td class="dxeCalendarDay dxeCalendarWeekend">15</td><td class="dxeCalendarDay dxeCalendarWeekend">16</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber">25</td><td class="dxeCalendarDay">17</td><td class="dxeCalendarDay">18</td><td class="dxeCalendarDay dxeCalendarToday">19</td><td class="dxeCalendarDay">20</td><td class="dxeCalendarDay">21</td><td class="dxeCalendarDay dxeCalendarWeekend">22</td><td class="dxeCalendarDay dxeCalendarWeekend">23</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber">26</td><td class="dxeCalendarDay">24</td><td class="dxeCalendarDay">25</td><td class="dxeCalendarDay">26</td><td class="dxeCalendarDay">27</td><td class="dxeCalendarDay">28</td><td class="dxeCalendarDay dxeCalendarWeekend">29</td><td class="dxeCalendarDay dxeCalendarWeekend">30</td>
+														</tr><tr>
+															<td class="dxeCalendarWeekNumber">27</td><td class="dxeCalendarDay dxeCalendarOtherMonth">1</td><td class="dxeCalendarDay dxeCalendarOtherMonth">2</td><td class="dxeCalendarDay dxeCalendarOtherMonth">3</td><td class="dxeCalendarDay dxeCalendarOtherMonth">4</td><td class="dxeCalendarDay dxeCalendarOtherMonth">5</td><td class="dxeCalendarDay dxeCalendarWeekend dxeCalendarOtherMonth">6</td><td class="dxeCalendarDay dxeCalendarWeekend dxeCalendarOtherMonth">7</td>
+														</tr>
+													</table></td>
+												</tr>
+											</table></td>
+										</tr><tr>
+											<td class="dxeCalendarFooter"><table cellpadding="0" align="center" border="0" style="border-collapse:collapse;">
+												<tr>
+													<td><table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+														<tr>
+															<td id="ctl00_PageContent_TbxDocDate_DDD_C_BC" class="dxeCalendarButton" onclick="aspxCalClearClick(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;);"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																<tr>
+																	<td class="dx" style="width:100%;">Очистить</td>
+																</tr>
+															</table></td>
+														</tr>
+													</table></td>
+												</tr>
+											</table></td>
+										</tr>
+									</table><input type="hidden" id="ctl00_PageContent_TbxDocDate_DDD_C_FNPWS" name="ctl00_PageContent_TbxDocDate_DDD_C_FNPWS" value="0:0:-1:0:0:0:0:0:" />
+									<div id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+										<table id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+											<tr>
+												<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_TbxDocDate_DDD_C_FNP&#39;,-1,false)" style="width:0px;cursor:default;"><table id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:0px;border-collapse:collapse;border-collapse:separate;">
+													<tr>
+														<td id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_PWC-1" style="height:100%;"><div class="dxeCalendarFastNav">
+															<div class="dxeCalendarFastNavMonthArea">
+																<table id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_m" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+																	<tr>
+																		<td class="dxeCalendarFastNavMonth">Янв</td><td class="dxeCalendarFastNavMonth">Фев</td><td class="dxeCalendarFastNavMonth">Мар</td><td class="dxeCalendarFastNavMonth">Апр</td>
+																	</tr><tr>
+																		<td class="dxeCalendarFastNavMonth">Май</td><td class="dxeCalendarFastNavMonth">Июн</td><td class="dxeCalendarFastNavMonth">Июл</td><td class="dxeCalendarFastNavMonth">Авг</td>
+																	</tr><tr>
+																		<td class="dxeCalendarFastNavMonth">Сен</td><td class="dxeCalendarFastNavMonth">Окт</td><td class="dxeCalendarFastNavMonth">Ноя</td><td class="dxeCalendarFastNavMonth">Дек</td>
+																	</tr>
+																</table>
+															</div><div class="dxeCalendarFastNavYearArea">
+																<table id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_y" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;margin-top:8px;">
+																	<tr>
+																		<td onclick="aspxCalFNYShuffle(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, -10)" rowspan="2" style="padding-right:8px;cursor:pointer;"><img class="dxEditors_edtCalendarFNPrevYear" src="/DXR.axd?r=1_16" alt="&lt;" style="border-width:0px;border-width:0px;" /></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td onclick="aspxCalFNYShuffle(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, 10)" rowspan="2" style="padding-left:8px;cursor:pointer;"><img class="dxEditors_edtCalendarFNNextYear" src="/DXR.axd?r=1_16" alt=">" style="border-width:0px;border-width:0px;" /></td>
+																	</tr><tr>
+																		<td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td><td class="dxeCalendarFastNavYear"></td>
+																	</tr>
+																</table>
+															</div>
+														</div><div class="dxeCalendarFastNavFooter" style="text-align:center;">
+															<table cellspacing="0" cellpadding="0" align="center" border="0" style="border-collapse:collapse;">
+																<tr>
+																	<td id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_BO" class="dxeCalendarButton" onclick="aspxCalFNBClick(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, &#39;ok&#39;)"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																		<tr>
+																			<td class="dx" style="width:100%;">OK</td>
+																		</tr>
+																	</table></td><td><div style="width:11px;">
+																	</div></td><td id="ctl00_PageContent_TbxDocDate_DDD_C_FNP_BC" class="dxeCalendarButton" onclick="aspxCalFNBClick(&#39;ctl00_PageContent_TbxDocDate_DDD_C&#39;, &#39;cancel&#39;)"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+																		<tr>
+																			<td class="dx" style="width:100%;">Cancel</td>
+																		</tr>
+																	</table></td>
+																</tr>
+															</table>
+														</div></td>
+													</tr>
+												</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+											</tr><tr>
+												<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+											</tr>
+										</table>
+									</div><script id="dxss_1357896597" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_TbxDocDate_DDD_C_FNP');
+window['ctl00_PageContent_TbxDocDate_DDD_C_FNP'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocDate$DDD$C$FNP';
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.isPopupPositionCorrectionOn=false;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<input id="ctl00_PageContent_TbxDocDate_DDD_C_STATE" name="ctl00$PageContent$TbxDocDate$DDD$C" type="hidden" /><script id="dxss_1494327278" type="text/javascript">
+<!--
+aspxAddHoverItems('ctl00_PageContent_TbxDocDate_DDD_C',[[['dxeCalendarButtonHover'],[''],['BC','FNP_BO','FNP_BC']],[['dxeCalendarFastNavMonthHover'],[''],['FNP_M0','FNP_M1','FNP_M2','FNP_M3','FNP_M4','FNP_M5','FNP_M6','FNP_M7','FNP_M8','FNP_M9','FNP_M10','FNP_M11']],[['dxeCalendarFastNavYearHover'],[''],['FNP_Y0','FNP_Y1','FNP_Y2','FNP_Y3','FNP_Y4','FNP_Y5','FNP_Y6','FNP_Y7','FNP_Y8','FNP_Y9']]]);
+aspxAddPressedItems('ctl00_PageContent_TbxDocDate_DDD_C',[[['dxeCalendarButtonPressed'],[''],['BC','FNP_BO','FNP_BC']]]);
+var dxo = new ASPxClientCalendar('ctl00_PageContent_TbxDocDate_DDD_C');
+window['ctl00_PageContent_TbxDocDate_DDD_C'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocDate$DDD$C';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused','');
+dxo.visibleDate = new Date(2019,5,19);
+dxo.firstDayOfWeek = 1;
+dxo.isDateEditCalendar = true;
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_104667982" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_TbxDocDate_DDD');
+window['ctl00_PageContent_TbxDocDate_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocDate$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_TbxDocDate', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_507696307" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_TbxDocDate_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_TbxDocDate',[[['dxeButtonEditButtonHover'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_TbxDocDate',[[['dxeButtonEditButtonPressed'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientDateEdit('ctl00_PageContent_TbxDocDate');
+window['ctl00_PageContent_TbxDocDate'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocDate';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused','');
+dxo.dateFormatter = ASPxDateFormatter.Create('dd.MM.yyyy');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">Адрес&nbsp;<span id="ctl00_PageContent_VlDocAddress" style="color:Red;">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxDocAddress" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxDocAddress_I" name="ctl00$PageContent$TbxDocAddress" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxDocAddress&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxDocAddress&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1076998910" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxDocAddress');
+window['ctl00_PageContent_TbxDocAddress'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxDocAddress';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo">
+			<td class="text_middle">Категория доступа&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbAccessType" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbAccessType_VI" name="ctl00_PageContent_CmbAccessType_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbAccessType&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbAccessType" value="- категория отсутствует -" id="ctl00_PageContent_CmbAccessType_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbAccessType&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbAccessType&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbAccessType&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbAccessType_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbAccessType&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbAccessType_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbAccessType_DDDWS" name="ctl00_PageContent_CmbAccessType_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbAccessType_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbAccessType_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbAccessType_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbAccessType_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbAccessType_DDD_PWC-1" style="height:100%;"><input type="hidden" id="ctl00_PageContent_CmbAccessType_DDD_LDeletedItems" name="ctl00_PageContent_CmbAccessType_DDD_LDeletedItems" value="" />
+									<input type="hidden" id="ctl00_PageContent_CmbAccessType_DDD_LInsertedItems" name="ctl00_PageContent_CmbAccessType_DDD_LInsertedItems" value="" />
+									<input type="hidden" id="ctl00_PageContent_CmbAccessType_DDD_LCustomCallback" name="ctl00_PageContent_CmbAccessType_DDD_LCustomCallback" value="" />
+									<table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbAccessType_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbAccessType_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbAccessType_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbAccessType$DDD$L" /><table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;visibility:hidden!important;display:none!important;">
+													<tr id="ctl00_PageContent_CmbAccessType_DDD_L_LBI-1" class="dxeListBoxItemRow_LK2015">
+														<td id="ctl00_PageContent_CmbAccessType_DDD_L_LBII" class="dxeListBoxItem_LK2015">&nbsp;</td>
+													</tr>
+												</table><table id="ctl00_PageContent_CmbAccessType_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">- категория отсутствует -</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">ДШ</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">ИКС</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">ИКФ</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">КБ</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">ОИК</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">ОХР</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">СЛ</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">УПР</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_1132550439" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbAccessType_DDD_L');
+window['ctl00_PageContent_CmbAccessType_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbAccessType$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbAccessType_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbAccessType', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbAccessType', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[1012,1008,1007,1013,1006,1005,2,4,1003];
+dxo.isComboBoxList = true;
+dxo.hasSampleItem = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_1786399418" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbAccessType_DDD');
+window['ctl00_PageContent_CmbAccessType_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbAccessType$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbAccessType', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<table id="ctl00_PageContent_CmbAccessType_LP" class="dxeLoadingPanel_LK2015" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;left:0px;top:0px;z-index:30000;display:none;">
+					<tr>
+						<td class="dx" style="padding-right:8px;"><img src="/DXR.axd?r=0_1356" alt="" align="middle" style="border-width:0px;border-width:0px;" /></td><td class="dx" style="padding-left:0px;">Loading&hellip;</td>
+					</tr>
+				</table><div id="ctl00_PageContent_CmbAccessType_LD" class="dxeLoadingDiv_LK2015" style="left:0px;top:0px;z-index:29999;display:none;position:absolute;">
+				</div><script id="dxss_855679050" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbAccessType_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbAccessType',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbAccessType',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbAccessType');
+window['ctl00_PageContent_CmbAccessType'] = dxo;
+dxo.callBack = function(arg) { WebForm_DoCallback('ctl00$PageContent$CmbAccessType',arg,aspxCallback,'ctl00_PageContent_CmbAccessType',aspxCallbackError,true); };
+dxo.uniqueID = 'ctl00$PageContent$CmbAccessType';
+aspxAddDisabledItems('ctl00_PageContent_CmbAccessType',[[['dxeDisabled_LK2015'],[''],['','I']],[['dxeDisabled_LK2015 dxeButtonDisabled_LK2015'],[''],['B-1'],,[[{'spriteCssClass':'dxEditors_edtDropDownDisabled_LK2015'}]],['Img']]]);
+dxo.SelectedIndexChanged.AddHandler(_NEWORDER.showMarkFields);
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxAccessDescription" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxAccessDescription_I" name="ctl00$PageContent$TbxAccessDescription" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxAccessDescription&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxAccessDescription&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_843204764" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxAccessDescription');
+window['ctl00_PageContent_TbxAccessDescription'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxAccessDescription';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsDocInfo clsDocMark">
+			<td class="text_middle">Специальные отметки&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbMark" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbMark_VI" name="ctl00_PageContent_CmbMark_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbMark&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbMark" value="- нет -" id="ctl00_PageContent_CmbMark_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbMark&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbMark&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbMark&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbMark_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbMark&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbMark_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbMark_DDDWS" name="ctl00_PageContent_CmbMark_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbMark_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbMark_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbMark_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbMark_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbMark_DDD_PWC-1" style="height:100%;"><table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbMark_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbMark_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbMark_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbMark$DDD$L" /><table id="ctl00_PageContent_CmbMark_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">- нет -</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">(А)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">(Д)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">(А)(Д)</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_1331542887" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbMark_DDD_L');
+window['ctl00_PageContent_CmbMark_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbMark$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbMark_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbMark', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbMark', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[0,6,2,7];
+dxo.isComboBoxList = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_2057828254" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbMark_DDD');
+window['ctl00_PageContent_CmbMark_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbMark$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbMark', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_869483607" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbMark_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbMark',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbMark',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbMark');
+window['ctl00_PageContent_CmbMark'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbMark';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxMarkDescription" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxMarkDescription_I" name="ctl00$PageContent$TbxMarkDescription" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxMarkDescription&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxMarkDescription&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_1275915202" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxMarkDescription');
+window['ctl00_PageContent_TbxMarkDescription'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxMarkDescription';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsCarInfo">
+			<td class="text_middle"></td>
+			<td class="control_middle"></td>
+		</tr>
+		<tr class="clsCarInfo"> 
+			<td class="text_middle">Марка машины&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxCarMark" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxCarMark_I" name="ctl00$PageContent$TbxCarMark" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxCarMark&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxCarMark&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_840216005" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxCarMark');
+window['ctl00_PageContent_TbxCarMark'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxCarMark';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+				<br />
+			</td>
+		</tr>
+		<tr class="clsCarInfo">
+			<td class="text_middle">Тип номера&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbCarNumberType" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbCarNumberType_VI" name="ctl00_PageContent_CmbCarNumberType_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbCarNumberType&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbCarNumberType" value="Российский" id="ctl00_PageContent_CmbCarNumberType_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbCarNumberType&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbCarNumberType&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbCarNumberType&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbCarNumberType_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbCarNumberType&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbCarNumberType_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbCarNumberType_DDDWS" name="ctl00_PageContent_CmbCarNumberType_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbCarNumberType_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbCarNumberType_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbCarNumberType_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbCarNumberType_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbCarNumberType_DDD_PWC-1" style="height:100%;"><table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbCarNumberType_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbCarNumberType_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbCarNumberType_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbCarNumberType$DDD$L" /><table id="ctl00_PageContent_CmbCarNumberType_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Российский</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Иностранный</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Транзит</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Другой</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_1812065624" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbCarNumberType_DDD_L');
+window['ctl00_PageContent_CmbCarNumberType_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarNumberType$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbCarNumberType_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbCarNumberType', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbCarNumberType', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=['RUS','IMP','TRN','OTH'];
+dxo.isComboBoxList = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_1897487461" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbCarNumberType_DDD');
+window['ctl00_PageContent_CmbCarNumberType_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarNumberType$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbCarNumberType', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_2051749917" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbCarNumberType_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbCarNumberType',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbCarNumberType',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbCarNumberType');
+window['ctl00_PageContent_CmbCarNumberType'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarNumberType';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsCarInfo">
+			<td class="text_middle">Гос. номер&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxCarNumber" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxCarNumber_I" name="ctl00$PageContent$TbxCarNumber" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxCarNumber&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxCarNumber&#39;)" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_519750766" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxCarNumber');
+window['ctl00_PageContent_TbxCarNumber'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxCarNumber';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsCarInfo">
+			<td class="text_middle">Тип ТС&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbCarType" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbCarType_VI" name="ctl00_PageContent_CmbCarType_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbCarType&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbCarType" value="Легковой" id="ctl00_PageContent_CmbCarType_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbCarType&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbCarType&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbCarType&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbCarType_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbCarType&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbCarType_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbCarType_DDDWS" name="ctl00_PageContent_CmbCarType_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbCarType_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbCarType_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbCarType_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbCarType_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbCarType_DDD_PWC-1" style="height:100%;"><input type="hidden" id="ctl00_PageContent_CmbCarType_DDD_LDeletedItems" name="ctl00_PageContent_CmbCarType_DDD_LDeletedItems" value="" />
+									<input type="hidden" id="ctl00_PageContent_CmbCarType_DDD_LInsertedItems" name="ctl00_PageContent_CmbCarType_DDD_LInsertedItems" value="" />
+									<input type="hidden" id="ctl00_PageContent_CmbCarType_DDD_LCustomCallback" name="ctl00_PageContent_CmbCarType_DDD_LCustomCallback" value="" />
+									<table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbCarType_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbCarType_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbCarType_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbCarType$DDD$L" /><table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;visibility:hidden!important;display:none!important;">
+													<tr id="ctl00_PageContent_CmbCarType_DDD_L_LBI-1" class="dxeListBoxItemRow_LK2015">
+														<td id="ctl00_PageContent_CmbCarType_DDD_L_LBII" class="dxeListBoxItem_LK2015">&nbsp;</td>
+													</tr>
+												</table><table id="ctl00_PageContent_CmbCarType_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">-- Выберите --</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Мотоцикл (мопед, скутер)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Легковой</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Грузовой (в т.ч. автобус)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">Прицеп (полуприцеп)</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_677627075" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbCarType_DDD_L');
+window['ctl00_PageContent_CmbCarType_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarType$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbCarType_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbCarType', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbCarType', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 2;
+dxo.itemsValue=[0,1,2,3,4];
+dxo.isComboBoxList = true;
+dxo.hasSampleItem = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_1862538870" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbCarType_DDD');
+window['ctl00_PageContent_CmbCarType_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarType$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbCarType', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<table id="ctl00_PageContent_CmbCarType_LP" class="dxeLoadingPanel_LK2015" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;left:0px;top:0px;z-index:30000;display:none;">
+					<tr>
+						<td class="dx" style="padding-right:8px;"><img src="/DXR.axd?r=0_1356" alt="" align="middle" style="border-width:0px;border-width:0px;" /></td><td class="dx" style="padding-left:0px;">Loading&hellip;</td>
+					</tr>
+				</table><div id="ctl00_PageContent_CmbCarType_LD" class="dxeLoadingDiv_LK2015" style="left:0px;top:0px;z-index:29999;display:none;position:absolute;">
+				</div><script id="dxss_515505486" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbCarType_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbCarType',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbCarType',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbCarType');
+window['ctl00_PageContent_CmbCarType'] = dxo;
+dxo.callBack = function(arg) { WebForm_DoCallback('ctl00$PageContent$CmbCarType',arg,aspxCallback,'ctl00_PageContent_CmbCarType',aspxCallbackError,true); };
+dxo.uniqueID = 'ctl00$PageContent$CmbCarType';
+aspxAddDisabledItems('ctl00_PageContent_CmbCarType',[[['dxeDisabled_LK2015'],[''],['','I']],[['dxeDisabled_LK2015 dxeButtonDisabled_LK2015'],[''],['B-1'],,[[{'spriteCssClass':'dxEditors_edtDropDownDisabled_LK2015'}]],['Img']]]);
+dxo.SelectedIndexChanged.AddHandler(_NEWORDER.showCarWeightFields);
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsCarInfo clsCarWeight">
+			<td class="text_middle">Грузоподъёмность, тонн&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeButtonEdit_LK2015" cellspacing="1" cellpadding="0" id="ctl00_PageContent_CmbCarWeight" border="0" style="border-collapse:separate;">
+					<tr>
+						<td style="display:none;"><input id="ctl00_PageContent_CmbCarWeight_VI" name="ctl00_PageContent_CmbCarWeight_VI" type="hidden" /></td><td class="dxic" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbCarWeight&#39;, event)" style="width:100%;padding-left:1px;padding-right:1px;padding-top:1px;padding-bottom:1px;"><input class="dxeEditArea_LK2015" name="ctl00$PageContent$CmbCarWeight" value="-- Выберите --" id="ctl00_PageContent_CmbCarWeight_I" onblur="aspxELostFocus(&#39;ctl00_PageContent_CmbCarWeight&#39;)" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_CmbCarWeight&#39;)" type="text" onchange="aspxETextChanged(&#39;ctl00_PageContent_CmbCarWeight&#39;)" readonly="readonly" style="border-width:0px;height:15px;width:100%;-khtml-user-select:none;cursor:default;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td><td id="ctl00_PageContent_CmbCarWeight_B-1" class="dxeButtonEditButton_LK2015" onmousedown="return aspxDDDropDown(&#39;ctl00_PageContent_CmbCarWeight&#39;, event)" style="-khtml-user-select:none;"><table class="dxbebt" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;">
+							<tr>
+								<td class="dx"><img id="ctl00_PageContent_CmbCarWeight_B-1Img" class="dxEditors_edtDropDown_LK2015" src="/DXR.axd?r=1_16" alt="v" style="border-width:0px;border-width:0px;" /></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table><input type="hidden" id="ctl00_PageContent_CmbCarWeight_DDDWS" name="ctl00_PageContent_CmbCarWeight_DDDWS" value="0:0:-1:0:0:0:0:0:" />
+				<div id="ctl00_PageContent_CmbCarWeight_DDD_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+					<table id="ctl00_PageContent_CmbCarWeight_DDD_PWST-1" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+						<tr>
+							<td onmousedown="aspxPWMDown(event,&#39;ctl00_PageContent_CmbCarWeight_DDD&#39;,-1,false)" style="width:200px;cursor:default;"><table id="ctl00_PageContent_CmbCarWeight_DDD_CLW-1" cellspacing="0" cellpadding="0" border="0" style="width:200px;border-collapse:collapse;border-collapse:separate;">
+								<tr>
+									<td id="ctl00_PageContent_CmbCarWeight_DDD_PWC-1" style="height:100%;"><table class="dxeListBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_CmbCarWeight_DDD_L" border="0" style="border-collapse:collapse;border-collapse:separate;">
+										<tr>
+											<td valign="top"><div id="ctl00_PageContent_CmbCarWeight_DDD_L_D" class="dxlbd" style="width:100%;overflow-x:hidden;overflow-y:auto;">
+												<input id="ctl00_PageContent_CmbCarWeight_DDD_L_VI" type="hidden" name="ctl00$PageContent$CmbCarWeight$DDD$L" /><table id="ctl00_PageContent_CmbCarWeight_DDD_L_LBT" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+													<tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">-- Выберите --</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">до 3,5 т. (газель, бычок, фургон)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">от 3,5 до 10 т. (грузовик)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">от 10 до 20 т. (крупнотоннажный грузовик)</td>
+													</tr><tr class="dxeListBoxItemRow_LK2015">
+														<td class="dxeListBoxItem_LK2015">свыше 20 т. (фура)</td>
+													</tr>
+												</table>
+											</div></td>
+										</tr>
+									</table><script id="dxss_195926652" type="text/javascript">
+<!--
+var dxo = new ASPxClientListBox('ctl00_PageContent_CmbCarWeight_DDD_L');
+window['ctl00_PageContent_CmbCarWeight_DDD_L'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarWeight$DDD$L';
+aspxAddDisabledItems('ctl00_PageContent_CmbCarWeight_DDD_L',[[['dxeDisabled_LK2015'],[''],['']]]);
+dxo.SelectedIndexChanged.AddHandler(function (s, e) { aspxCBLBSelectedIndexChanged('ctl00_PageContent_CmbCarWeight', e); });
+dxo.ItemClick.AddHandler(function (s, e) { aspxCBLBItemMouseUp('ctl00_PageContent_CmbCarWeight', e); });
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.savedSelectedIndex = 0;
+dxo.itemsValue=[0,1,2,3,4];
+dxo.isComboBoxList = true;
+dxo.hoverClasses=['dxeListBoxItemHover_LK2015'];
+dxo.selectedClasses=['dxeListBoxItemSelected_LK2015'];
+dxo.disabledClasses=['dxeDisabled_LK2015'];
+dxo.InlineInitialize();
+//-->
+</script>
+</td>
+								</tr>
+							</table></td><td style="background:url('/DXR.axd?r=1_13') no-repeat left top;"></td>
+						</tr><tr>
+							<td style="background:url('/DXR.axd?r=1_15') no-repeat left top;"></td><td><img src="/DXR.axd?r=1_14" alt="" style="height:5px;width:5px;border-width:0px;border-width:0px;" /></td>
+						</tr>
+					</table>
+				</div><script id="dxss_541342776" type="text/javascript">
+<!--
+var dxo = new ASPxClientPopupControl('ctl00_PageContent_CmbCarWeight_DDD');
+window['ctl00_PageContent_CmbCarWeight_DDD'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarWeight$DDD';
+dxo.Shown.AddHandler(function (s, e) { aspxDDBPCShown('ctl00_PageContent_CmbCarWeight', e); });
+dxo.adjustInnerControlsSizeOnShow=false;
+dxo.closeAction='CloseButton';
+dxo.popupHorizontalAlign='LeftSides';
+dxo.popupVerticalAlign='Below';
+dxo.isPopupPositionCorrectionOn=false;
+dxo.width=0;
+dxo.height=0;
+dxo.InlineInitialize();
+//-->
+</script>
+<script id="dxss_1344404034" type="text/javascript">
+<!--
+document.getElementById("ctl00_PageContent_CmbCarWeight_I").setAttribute("autocomplete", "off");
+aspxAddHoverItems('ctl00_PageContent_CmbCarWeight',[[['dxeButtonEditButtonHover_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+aspxAddPressedItems('ctl00_PageContent_CmbCarWeight',[[['dxeButtonEditButtonPressed_LK2015'],[''],['B-1'],,[['']],['Img']]]);
+var dxo = new ASPxClientComboBox('ctl00_PageContent_CmbCarWeight');
+window['ctl00_PageContent_CmbCarWeight'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$CmbCarWeight';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+			</td>
+		</tr>
+		<tr class="clsPhoto">
+			<td class="text_middle">Фото&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+		<div id="ctl00_PageContent_UpPhoto">
+				<table>
+					<tr>
+						<td>
+							<img id="ctl00_PageContent_ImgPhoto" src="" style="border-width:0px;" />
+						</td>
+						<td>&nbsp;</td>
+						<td style="vertical-align:top">
+							<div style="font-weight:bold; padding-bottom:2px">Требования к фото:</div>
+							<ul>
+						<li>Как на паспорт </li><li>размер 3x4</li><li>min разрешение 300dpi</li><li>формат jpg</li>
+					</ul>
+							&nbsp;
+							<br />
+							<br /><br /><br />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div id="ctl00_PageContent_FilePhoto">
+						<input type="hidden" name="ctl00$PageContent$FilePhoto$ctl00" id="ctl00_PageContent_FilePhoto_ctl00" /><div id="ctl00_PageContent_FilePhoto_ctl01"><input name="ctl00$PageContent$FilePhoto$ctl02" type="file" id="ctl00_PageContent_FilePhoto_ctl02" style="width:250px;" /></div>
+					</div>
+							<span id="ctl00_PageContent_CvFilePhoto" style="color:Red;visibility:hidden;">Поддерживаются только файлы формата JPEG!</span>
+						</td>
+						<td style="vertical-align:bottom;">
+						</td>
+					</tr>
+				</table>
+				</div>
+			</td>
+		</tr>
+		<tr class="clsPhoto">
+			<td class="text_middle">Копия паспорта&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+		<div id="ctl00_PageContent_UpScan">
+				<div>
+					<div id="ctl00_PageContent_FileScan">
+						<input type="hidden" name="ctl00$PageContent$FileScan$ctl00" id="ctl00_PageContent_FileScan_ctl00" /><div id="ctl00_PageContent_FileScan_ctl01"><input name="ctl00$PageContent$FileScan$ctl02" type="file" id="ctl00_PageContent_FileScan_ctl02" style="width:306px;" /></div>
+					</div>
+					<span id="ctl00_PageContent_CvFileScan" style="color:Red;visibility:hidden;">Поддерживаются только файлы формата PDF!</span>
+				</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Ваш контактный Email&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxEmail" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxEmail_I" name="ctl00$PageContent$TbxEmail" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxEmail&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxEmail&#39;)" value="vdakinshin@gmail.com" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_155270418" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxEmail');
+window['ctl00_PageContent_TbxEmail'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxEmail';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+				<span id="ctl00_PageContent_RfvEmail" style="color:Red;display:none;">Обязательное поле</span>
+				<span id="ctl00_PageContent_RevEmail" style="color:Red;display:none;">Некорректный e-mail адрес</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="text_middle">Ваш контактный телефон&nbsp;<span style="color:red">*</span>&nbsp;:</td>
+			<td class="control_middle">
+				<table class="dxeTextBox_LK2015" cellspacing="0" cellpadding="0" id="ctl00_PageContent_TbxPhone" border="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+					<tr>
+						<td class="dxic" style="width:100%;padding-left:2px;padding-right:2px;padding-top:2px;padding-bottom:2px;"><input class="dxeEditArea_LK2015" id="ctl00_PageContent_TbxPhone_I" name="ctl00$PageContent$TbxPhone" onfocus="aspxEGotFocus(&#39;ctl00_PageContent_TbxPhone&#39;)" onblur="aspxELostFocus(&#39;ctl00_PageContent_TbxPhone&#39;)" value="+79162595175" type="text" style="border-width:0px;height:15px;width:100%;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;" /></td>
+					</tr>
+				</table><script id="dxss_838353547" type="text/javascript">
+<!--
+var dxo = new ASPxClientTextBox('ctl00_PageContent_TbxPhone');
+window['ctl00_PageContent_TbxPhone'] = dxo;
+dxo.uniqueID = 'ctl00$PageContent$TbxPhone';
+dxo.RequireStyleDecoration();
+dxo.styleDecoration.AddStyle('F','dxeFocused_LK2015','');
+dxo.InlineInitialize();
+//-->
+</script>
+				<span id="ctl00_PageContent_RfvPhone" style="color:Red;display:none;">Обязательное поле</span>
+			</td>
+		</tr>
+		<tr class="clsPassengers">
+			<td colspan="2" class="text_middle" style="padding-bottom:5px">
+				<b>Информация о пассажирах:</b>
+			</td>
+		</tr>
+		<tr class="clsPassengers">
+			<td colspan="2" class="text_middle" style="padding-bottom:2px">
+				<div>
+					<table class="grd_border" cellspacing="0" cellpadding="4" rules="all" border="1" id="ctl00_PageContent_GvPassengers" style="width:100%;border-collapse:collapse;">
+						<tr align="center" style="color:#666666;background-color:#DDDDDD;">
+							<th class="grd_border" scope="col">№</th><th class="grd_border" scope="col">&nbsp;</th><th class="grd_border" scope="col">Фамилия</th><th class="grd_border" scope="col">Имя</th><th class="grd_border" scope="col">Отчество</th><th class="grd_border" scope="col">Отношение к организации</th><th class="grd_border" scope="col">&nbsp;</th>
+						</tr><tr align="right">
+							<td colspan="7">
+						<table style="margin: 0 auto">
+							<tr>
+								<td style="vertical-align:middle">Список пассажиров пуст</td>
+								<td>&nbsp; &nbsp;</td>
+								<td><input type="image" name="ctl00$PageContent$GvPassengers$ctl02$cmdAddEmpty" id="ctl00_PageContent_GvPassengers_ctl02_cmdAddEmpty" title="Добавить" src="Images/add.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PageContent$GvPassengers$ctl02$cmdAddEmpty&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" style="border-width:0px;" /></td>
+							</tr>
+						</table>
+					</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr class="clsPassengers">
+			<td colspan="2" class="text_middle" style="text-align:right; font-size:smaller">На каждого пассажира будет создана отдельная заявка</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="text_middle" style="text-align:right">
+				Поля, отмеченные звездочкой ( <span style="color:Red">*</span> ) обязательны для заполнения
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="submit" name="ctl00$PageContent$btnAddOrder" value="Добавить заявку" onclick="if (!_NEWORDER.startLoadPage(this)) return;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PageContent$btnAddOrder&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_PageContent_btnAddOrder" class="btnAddOrder" />
+			</td>
+		</tr>
+	</table>
+	<br />
+			</div>
+		</div>
+				<div class="row banners mbl" style="text-align:center;padding-left:100px">
+					<iframe src="Rotator.aspx" style="border:none" width="720" height="100" frameborder="0" scrolling="no" ></iframe>
+				</div>
+	</div>
+			<div id="ctl00_pnlFooter" class="container footer_level">
+				<div class="decor_01">
+					<div class="bg-cian_1 line col-s-8 col-m-8 col-l-8"></div>
+					<div class="bg-gray_1 line col-s-8 col-m-12 col-l-12"></div>
+					<div class="bg-gray_2 line col-s-8 col-m-4 col-l-4"></div>
+				</div>
+				<div id="ctl00_pnlFooterRow" class="row footer_row">
+					<div id="ctl00_pnlFooterMenu" class="col-s-24 col-m-18 col-l-18 navigation_footer">
+						<table id="ctl00_tblFooterMenuItems" class="navigation_links_footer" border="0">
+					<tr>
+						<td class="pad_right_foot">
+									<a href="information.aspx" target="_self">
+										<b class="ic ico_info48_dgr	s48"></b>
+										<span>Информация</span>
+									</a>
+								</td><td class="pad_right_foot">
+									<a href="GridRequest.aspx?ServicesTypeID=1" target="_self">
+										<b class="ic ico_mech48_dgr s48"></b>
+										<span>Служба сервиса</span>
+									</a>
+								</td><td class="pad_right_foot">
+									<a href="GridRequest.aspx?ServicesTypeID=2" target="_self">
+										<b class="ic ico_case48_dgr	s48"></b>
+										<span>Доп. услуги ($)</span>
+									</a>
+								</td><td class="pad_right_foot">
+									<a href="GridRequest.aspx?ServicesTypeID=3" target="_self">
+										<b class="ic ico_chat48_dgr	s48"></b>
+										<span>Пожелания</span>
+									</a>
+								</td><td class="pad_right_foot">
+									<a href="orders.aspx" target="_self">
+										<b class="ic ico_tvman48_dgr s48"></b>
+										<span>Пропуска</span>
+									</a>
+								</td><td class="pad_right_foot">
+									<a href="information.aspx?is_advert=1" target="_self">
+										<b class="ic ico_speaker48_dgr	s48"></b>
+										<span>Реклама</span>
+									</a>
+								</td><td class="pad_right_foot">
+									<a href="help.aspx" target="_self">
+										<b class="ic ico_doc48_dgr s48"></b>
+										<span>Справка</span>
+									</a>
+								</td>
+					</tr>
+				</table>
+			</div>
+					<div id="ctl00_pnlFooterPhone" class="col-s-24 col-m-6 col-l-6 phone_bc">
+						<span class="phone">
+							<span class="clr-cian_1 small">
+								<span id="ctl00_lblCityPhoneCodeFooter">+7 495 </span>
+							</span>
+							<span id="ctl00_lblUkPhoneFooter">665-5894</span>
+						</span>
+						<span id="ctl00_lblUkFooter" class="clr-cian_1 small uk">Управляющая компания "SKY Property"</span>
+			</div>
+		</div>
+	</div> 
+</div>
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_PageContent_RevFloor"), document.getElementById("ctl00_PageContent_RevWay"), document.getElementById("ctl00_PageContent_CvBirthDate"), document.getElementById("ctl00_PageContent_CvFilePhoto"), document.getElementById("ctl00_PageContent_CvFileScan"), document.getElementById("ctl00_PageContent_RfvEmail"), document.getElementById("ctl00_PageContent_RevEmail"), document.getElementById("ctl00_PageContent_RfvPhone"));
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_PageContent_RevFloor = document.all ? document.all["ctl00_PageContent_RevFloor"] : document.getElementById("ctl00_PageContent_RevFloor");
+ctl00_PageContent_RevFloor.controltovalidate = "ctl00_PageContent_TbxFloor";
+ctl00_PageContent_RevFloor.errormessage = "Некорректный этаж";
+ctl00_PageContent_RevFloor.display = "Dynamic";
+ctl00_PageContent_RevFloor.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_PageContent_RevFloor.validationexpression = "[-]{0,1}\\d+";
+var ctl00_PageContent_RevWay = document.all ? document.all["ctl00_PageContent_RevWay"] : document.getElementById("ctl00_PageContent_RevWay");
+ctl00_PageContent_RevWay.controltovalidate = "ctl00_PageContent_TbxWay";
+ctl00_PageContent_RevWay.errormessage = "Число символов не должно превышать 185.";
+ctl00_PageContent_RevWay.display = "Dynamic";
+ctl00_PageContent_RevWay.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_PageContent_RevWay.validationexpression = "[a-zA-Z0-9А-Яа-я_\\-\\.\\s\\S]{0,185}";
+var ctl00_PageContent_CvBirthDate = document.all ? document.all["ctl00_PageContent_CvBirthDate"] : document.getElementById("ctl00_PageContent_CvBirthDate");
+ctl00_PageContent_CvBirthDate.errormessage = "Неверная дата";
+ctl00_PageContent_CvBirthDate.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var ctl00_PageContent_CvFilePhoto = document.all ? document.all["ctl00_PageContent_CvFilePhoto"] : document.getElementById("ctl00_PageContent_CvFilePhoto");
+ctl00_PageContent_CvFilePhoto.errormessage = "Поддерживаются только файлы формата JPEG!";
+ctl00_PageContent_CvFilePhoto.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var ctl00_PageContent_CvFileScan = document.all ? document.all["ctl00_PageContent_CvFileScan"] : document.getElementById("ctl00_PageContent_CvFileScan");
+ctl00_PageContent_CvFileScan.errormessage = "Поддерживаются только файлы формата PDF!";
+ctl00_PageContent_CvFileScan.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var ctl00_PageContent_RfvEmail = document.all ? document.all["ctl00_PageContent_RfvEmail"] : document.getElementById("ctl00_PageContent_RfvEmail");
+ctl00_PageContent_RfvEmail.controltovalidate = "ctl00_PageContent_TbxEmail";
+ctl00_PageContent_RfvEmail.focusOnError = "t";
+ctl00_PageContent_RfvEmail.errormessage = "Обязательное поле";
+ctl00_PageContent_RfvEmail.display = "Dynamic";
+ctl00_PageContent_RfvEmail.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_PageContent_RfvEmail.initialvalue = "";
+var ctl00_PageContent_RevEmail = document.all ? document.all["ctl00_PageContent_RevEmail"] : document.getElementById("ctl00_PageContent_RevEmail");
+ctl00_PageContent_RevEmail.controltovalidate = "ctl00_PageContent_TbxEmail";
+ctl00_PageContent_RevEmail.errormessage = "Некорректный e-mail адрес";
+ctl00_PageContent_RevEmail.display = "Dynamic";
+ctl00_PageContent_RevEmail.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_PageContent_RevEmail.validationexpression = "[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+";
+var ctl00_PageContent_RfvPhone = document.all ? document.all["ctl00_PageContent_RfvPhone"] : document.getElementById("ctl00_PageContent_RfvPhone");
+ctl00_PageContent_RfvPhone.controltovalidate = "ctl00_PageContent_TbxPhone";
+ctl00_PageContent_RfvPhone.focusOnError = "t";
+ctl00_PageContent_RfvPhone.errormessage = "Обязательное поле";
+ctl00_PageContent_RfvPhone.display = "Dynamic";
+ctl00_PageContent_RfvPhone.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_PageContent_RfvPhone.initialvalue = "";
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+WebForm_InitCallback();
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+document.getElementById('ctl00_PageContent_RevFloor').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_RevFloor'));
+}
+document.getElementById('ctl00_PageContent_RevWay').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_RevWay'));
+}
+document.getElementById('ctl00_PageContent_CvBirthDate').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_CvBirthDate'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.AsyncFileUpload, {"clientStateField":$get("ctl00_PageContent_FilePhoto_ClientState"),"completeBackColor":"#DDEEDD","errorBackColor":"#F587C7","formName":"aspnetForm","hiddenField":$get("ctl00_PageContent_FilePhoto_ctl00"),"inputFile":$get("ctl00_PageContent_FilePhoto_ctl02"),"postBackUrl":"/new_order.aspx","uploadingBackColor":"White"}, {"uploadComplete":OnClientAsyncFileUploadComplete,"uploadError":_NEWORDER.uploadError,"uploadStarted":_NEWORDER.checkExtension}, null, $get("ctl00_PageContent_FilePhoto"));
+});
+document.getElementById('ctl00_PageContent_CvFilePhoto').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_CvFilePhoto'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.AsyncFileUpload, {"clientStateField":$get("ctl00_PageContent_FileScan_ClientState"),"completeBackColor":"#DDEEDD","errorBackColor":"#F587C7","formName":"aspnetForm","hiddenField":$get("ctl00_PageContent_FileScan_ctl00"),"inputFile":$get("ctl00_PageContent_FileScan_ctl02"),"postBackUrl":"/new_order.aspx","uploadingBackColor":"White"}, {"uploadError":_NEWORDER.uploadErrorScan,"uploadStarted":_NEWORDER.checkExtensionScan}, null, $get("ctl00_PageContent_FileScan"));
+});
+document.getElementById('ctl00_PageContent_CvFileScan').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_CvFileScan'));
+}
+document.getElementById('ctl00_PageContent_RfvEmail').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_RfvEmail'));
+}
+document.getElementById('ctl00_PageContent_RevEmail').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_RevEmail'));
+}
+document.getElementById('ctl00_PageContent_RfvPhone').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_PageContent_RfvPhone'));
+}
+//]]>
+</script>
+</form>
+</body>
+</html>

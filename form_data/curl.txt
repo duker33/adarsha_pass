@@ -1,0 +1,16 @@
+curl -X POST https://2an.ru/new_order.aspx\
+-d '@form.txt'\
+-H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'\
+-H 'Accept-Encoding: gzip, deflate, br'\
+-H 'Authorization: Basic Njk0NzgtNDQ4MTQ6P2tSTkdWLTE3OQ=='\
+-H 'Cache-Control: max-age=0'\
+-H 'Connection: keep-alive'\
+-H 'Content-Length: 24103'\
+-H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryHeVQtCHagOCXlWT5'\
+-H 'Cookie: _ym_uid=1559580495498255702; _ym_d=1559580495; __utmz=117510730.1559580495.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); ASP.NET_SessionId=lktqonacinxslmr0lgyce10g; __utmc=117510730; __utma=117510730.1535968530.1559580495.1560673504.1560868972.4; __utmt=1; __utmb=117510730.1.10.1560868972; _ym_visorc_1659353=w; _ym_isad=1'\
+-H 'Host: 2an.ru'\
+-H 'Origin: https://2an.ru'\
+-H 'Referer: https://2an.ru/new_order.aspx'\
+-H 'Upgrade-Insecure-Requests: 1'\
+-H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'\
+-H 'Accept-Language: en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7'
