@@ -1,7 +1,8 @@
 # magic "run all" here
 import config
 import requests
-from datetime import datetime
+import typing
+from datetime import date, datetime
 
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
@@ -20,11 +21,17 @@ class Guest:
         self.fio = fio
         self.vk_account = vk_account
 
+    def __str__(self):
+        return f'{self.fio}. Account {self.vk_account}'
+
 
 class Pass:
-    def __init__(self, guest: Guest, date: datetime):
+    def __init__(self, guest: Guest, date_: date):
         self.guest = guest
-        self.date = datetime
+        self.date = date_
+
+    def __str__(self):
+        return f'Pass for {self.guest}. To the date {self.date.isoformat()}'
 
 
 class IQPark:
@@ -35,6 +42,8 @@ class IQPark:
 
     def create_pass(self, guest: Guest=None):
         """
+        Draft method. Take form data file and order pass.
+
         @raises PassOrderingError
         """
         with open('form_data/form.txt', 'r', encoding='utf-8') as f:
@@ -66,48 +75,74 @@ class Admin:
         self.iq_park = iq_park
 
     def order(self, pass_: Pass):
+        print('order pass', pass_)
         self.iq_park.create_pass(pass_)
 
 
+# TODO - dockerize the app
+# Waiting docker to use dataclasses from containerized py3.7
+# @dataclass
+class Message():
+    messenger = 'VK'
+    user_id: str
+    text: str
+
+    def __init__(self, user_id: str, text: str, messenger='VK'):
+        self.user_id = user_id
+        self.text = text
+
+
+class VkMessenger:
+    MESSAGE_TYPES = [
+        VkBotEventType.MESSAGE_NEW,
+        VkBotEventType.MESSAGE_REPLY,
+        VkBotEventType.MESSAGE_EDIT,
+    ]
+
+    @property
+    def session(self):
+        return vk_api.VkApi(token=config.VK_GROUP_TOKEN)
+
+    @property
+    def longpoll(self):
+        """
+        Long poll integration example
+        https://github.com/python273/vk_api/blob/master/examples/bot_longpoll.py
+        """
+        return VkBotLongPoll(self.session, config.VK_GROUP_ID)
+
+    def listen(self) -> typing.Generator[Message, None, None]:
+        for event in self.longpoll.listen():
+            if event.type in self.MESSAGE_TYPES:
+                yield Message(user_id=event.obj.from_id, text=event.obj.text)
+
+
 class Bot:
-    """
-    - receive FIO for guest
-    - create the pass for the guest with admin
-    - send an answer for guest
-    """
-
-    def __init__(self, admin: Admin):
+    def __init__(self, admin: Admin, messenger: VkMessenger):
         self.admin = admin
+        self.messenger = messenger
 
-    def order_pass(self, message: str):
+    # TODO - only Admin should create passes. Refactor arch
+    def order_pass(self, message: Message):
         # Питонов Андрей Андреевич 01.08.2019
-        tokens = message.split(' ')
+        tokens = message.text.split(' ')
         self.admin.order(
             Pass(
-                Guest(' '.join(tokens[:3])),
-                date=datetime(tokens[3])
+                Guest(fio=' '.join(tokens[:3]), vk_account=message.user_id),
+                date_=datetime.strptime(tokens[3], '%d.%m.%Y').date()
             )
         )
 
-    def receive(self, message: str):
+    def receive(self, message: Message):
         # TODO - log info there
         self.order_pass(message)
 
-    VK_MESSAGE_TYPES = [VkBotEventType.MESSAGE_NEW, VkBotEventType.MESSAGE_REPLY, VkBotEventType.MESSAGE_EDIT]
-
-    def listen_vk(self):
-        # Long poll example
-        # https://github.com/python273/vk_api/blob/master/examples/bot_longpoll.py
-        # VK integration here
-        # TODO - dev good arch for bot server
-        vk_session = vk_api.VkApi(token=config.VK_GROUP_TOKEN)
-        longpoll = VkBotLongPoll(vk_session, config.VK_GROUP_ID)
-
-        for event in longpoll.listen():
-            if event.type in self.VK_MESSAGE_TYPES:
-                user = event.obj.from_id
-                text = event.obj.text
-                print(user, text)
+    def listen(self):
+        for message in self.messenger.listen():
+            self.receive(message)
 
 
-Bot(Admin(IQPark())).listen_vk()
+Bot(
+    Admin(IQPark()),
+    VkMessenger()
+).listen()
