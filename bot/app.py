@@ -1,11 +1,12 @@
 # magic "run all" here
-import config
 import requests
 import typing
 from datetime import date, datetime
 
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
+
+import config, form
 
 
 class PassOrderingError(Exception):
@@ -17,12 +18,28 @@ class VkAccount:
 
 
 class Guest:
-    def __init__(self, fio: str, vk_account: VkAccount=None):
-        self.fio = fio
+    def __init__(
+        self,
+        surname: str, name: str, patronymic: str,
+        vk_account: VkAccount=None
+    ):
+        self.surname = surname
+        self.name = name
+        self.patronymic = patronymic
         self.vk_account = vk_account
 
+    @classmethod
+    def from_fio(cls, fio: str, vk_account: VkAccount=None):
+        tokens = fio.split(' ')
+        assert len(tokens) == 3, tokens
+        return cls(*tokens, vk_account)
+
+    @property
+    def fio(self):
+        return ' '.join([self.surname, self.name, self.patronymic])
+
     def __str__(self):
-        return f'{self.fio}. Account {self.vk_account}'
+        return f'FIO: {self.fio}. VK id: {self.vk_account}'
 
 
 class Pass:
@@ -33,6 +50,12 @@ class Pass:
     def __str__(self):
         return f'Pass for {self.guest}. To the date {self.date.isoformat()}'
 
+    def as_form_data(self) -> typing.Dict[str, str]:
+        return form.pass_fields(
+            self.guest.surname, self.guest.name, self.guest.patronymic,
+            f'{self.date:%d.%m.%Y}'
+        )
+
 
 class IQPark:
     """
@@ -40,27 +63,24 @@ class IQPark:
     """
     PASS_URL = 'https://2an.ru/new_order.aspx'
 
-    def create_pass(self, guest: Guest=None):
+    def order(self, pass_: Pass):
         """
-        Draft method. Take form data file and order pass.
+        Order pass with IQPark admin panel.
 
         @raises PassOrderingError
         """
-        with open('form_data/form.txt', 'r', encoding='utf-8') as f:
-            s = lambda line: line.split(':')
-            data = {
-                s(line)[0]: s(line)[1].strip()
-                for line in f.read().split('\n')
-                if len(s(line)) > 1
-            }
-            # TODO - cleanup file. Move all private data to the config
-            response = requests.post(self.PASS_URL, data, auth=(config.LOGIN, config.PASSWORD))
-            if response.status_code == 200:
-                # TODO - log success
-                pass
-            else:
-                # TODO - log failure
-                pass
+        print('form data', pass_.as_form_data())
+        response = requests.post(
+            self.PASS_URL,
+            data={**pass_.as_form_data(), **form.DATA},
+            auth=(config.LOGIN, config.PASSWORD)
+        )
+        if response.status_code == 200:
+            # TODO - log success
+            pass
+        else:
+            # TODO - raise failure
+            pass
 
 
 class Admin:
@@ -76,7 +96,7 @@ class Admin:
 
     def order(self, pass_: Pass):
         print('order pass', pass_)
-        self.iq_park.create_pass(pass_)
+        self.iq_park.order(pass_)
 
 
 # TODO - dockerize the app
@@ -128,7 +148,7 @@ class Bot:
         tokens = message.text.split(' ')
         self.admin.order(
             Pass(
-                Guest(fio=' '.join(tokens[:3]), vk_account=message.user_id),
+                Guest(*tokens[:3], vk_account=message.user_id),
                 date_=datetime.strptime(tokens[3], '%d.%m.%Y').date()
             )
         )
@@ -142,7 +162,8 @@ class Bot:
             self.receive(message)
 
 
-Bot(
-    Admin(IQPark()),
-    VkMessenger()
-).listen()
+if __name__ == '__main__':
+    Bot(
+        Admin(IQPark()),
+        VkMessenger()
+    ).listen()

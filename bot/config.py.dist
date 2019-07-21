@@ -1,2 +1,13 @@
 LOGIN = 'login'
 PASSWORD = 'pass'
+
+VK_GROUP_ID = 123456789
+VK_GROUP_TOKEN = 85*'a'
+
+FORM_PRIVATE_FIELDS = {
+    'ctl00$PageContent$TbxEmail': '',
+    'ctl00$PageContent$TbxPhone': '',
+    'ctl00$PageContent$TbxBuilding': '',
+    'ctl00$PageContent$TbxFloor': '',
+    'ctl00$PageContent$TbxOffice': '',
+}
