@@ -6,5 +6,5 @@ services:
       context: ../
       dockerfile: ./docker/app/Dockerfile
     volumes:
-      - ./:/usr/src
-    command: sleep infinity
+      - ./../:/usr/src
+    command: python bot/app.py
