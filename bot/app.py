@@ -57,6 +57,22 @@ class Pass:
         )
 
 
+import ssl
+from urllib3.poolmanager import PoolManager
+
+from requests.adapters import HTTPAdapter
+
+
+class TLSv1HttpAdapter(HTTPAdapter):
+    """"Transport adapter" that allows us to use TLS1.0."""
+
+    def init_poolmanager(self, connections, maxsize, block=False):
+        self.poolmanager = PoolManager(
+            num_pools=connections, maxsize=maxsize,
+            block=block, ssl_version=ssl.PROTOCOL_TLS_SERVER
+        )
+
+
 class IQPark:
     """
     - create pass for guest
@@ -70,11 +86,17 @@ class IQPark:
         @raises PassOrderingError
         """
         print('form data', pass_.as_form_data())
-        response = requests.post(
-            self.PASS_URL,
-            data={**pass_.as_form_data(), **form.DATA},
-            auth=(config.LOGIN, config.PASSWORD)
-        )
+
+        session = requests.Session()
+        session.mount('https://', TLSv1HttpAdapter())
+        try:
+            response = requests.post(
+                self.PASS_URL,
+                data={**pass_.as_form_data(), **form.DATA},
+                auth=(config.LOGIN, config.PASSWORD)
+            )
+        finally:
+            session.close()
         if response.status_code == 200:
             # TODO - log success
             pass

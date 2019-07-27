@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.6
 
 COPY . /usr/src
 WORKDIR /usr/src
