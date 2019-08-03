@@ -2,11 +2,13 @@
 import requests
 import typing
 from datetime import date, datetime
+from functools import lru_cache
 
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
 import config, form
+from ssl_adapter import AncientCiphersAdapter
 
 
 class PassOrderingError(Exception):
@@ -61,7 +63,15 @@ class IQPark:
     """
     - create pass for guest
     """
-    PASS_URL = 'https://2an.ru/new_order.aspx'
+    DOMAIN = 'https://2an.ru'
+    PASS_URL = DOMAIN + '/new_order.aspx'
+
+    @property
+    @lru_cache(maxsize=1)
+    def session(self) -> requests.Session:
+        session = requests.Session()
+        session.mount(self.DOMAIN, AncientCiphersAdapter())
+        return session
 
     def order(self, pass_: Pass):
         """
@@ -71,7 +81,7 @@ class IQPark:
         """
         print('form data', pass_.as_form_data())
 
-        response = requests.post(
+        response = self.session.post(
             self.PASS_URL,
             data={**pass_.as_form_data(), **form.DATA},
             auth=(config.LOGIN, config.PASSWORD)
