@@ -1,2 +1,4 @@
+flake8
+pytest
 requests==2.*
 vk_api

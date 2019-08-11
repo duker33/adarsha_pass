@@ -1,6 +1,9 @@
+# Write to https://t.me/duker33 to receive this values
 LOGIN = 'login'
 PASSWORD = 'pass'
 
+# Visit VK docs to get instruction for VK credentials generation:
+# https://vk.com/dev/bots_docs
 VK_GROUP_ID = 123456789
 VK_GROUP_TOKEN = 85*'a'
 

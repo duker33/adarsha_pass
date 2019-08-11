@@ -7,8 +7,8 @@ from functools import lru_cache
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
-import config, form
-from ssl_adapter import AncientCiphersAdapter
+from bot import config, form
+from bot.ssl_adapter import AncientCiphersAdapter
 
 
 class PassOrderingError(Exception):
@@ -23,7 +23,7 @@ class Guest:
     def __init__(
         self,
         surname: str, name: str, patronymic: str,
-        vk_account: VkAccount=None
+        vk_account: VkAccount = None
     ):
         self.surname = surname
         self.name = name
@@ -31,9 +31,10 @@ class Guest:
         self.vk_account = vk_account
 
     @classmethod
-    def from_fio(cls, fio: str, vk_account: VkAccount=None):
+    def from_fio(cls, fio: str, vk_account: VkAccount = None):
         tokens = fio.split(' ')
         assert len(tokens) == 3, tokens
+        # noinspection PyTypeChecker
         return cls(*tokens, vk_account)
 
     @property
@@ -124,6 +125,8 @@ class Message():
 
 
 class VkMessenger:
+    """Vk bot docs: https://vk.com/dev/bots_docs"""
+
     MESSAGE_TYPES = [
         VkBotEventType.MESSAGE_NEW,
         VkBotEventType.MESSAGE_REPLY,
@@ -171,10 +174,3 @@ class Bot:
     def listen(self):
         for message in self.messenger.listen():
             self.receive(message)
-
-
-if __name__ == '__main__':
-    Bot(
-        Admin(IQPark()),
-        VkMessenger()
-    ).listen()

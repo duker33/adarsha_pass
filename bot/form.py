@@ -1,4 +1,5 @@
-import config
+from bot import config
+
 
 def pass_fields(surname: str, name: str, patronymic: str, date_: str):
     """
@@ -10,6 +11,7 @@ def pass_fields(surname: str, name: str, patronymic: str, date_: str):
         'ctl00$PageContent$TbxSecondName': patronymic,
         'ctl00$PageContent$HfSelectedDates': date_,
     }
+
 
 # IQPark's form data
 DATA = {

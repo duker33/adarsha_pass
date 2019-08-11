@@ -2,7 +2,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.ssl_ import create_urllib3_context
 
-import config
+from bot import config
 
 # taken from
 # https://ssl-config.mozilla.org/#server=nginx&server-version=1.17.0&config=old
@@ -26,12 +26,17 @@ class AncientCiphersAdapter(HTTPAdapter):
     def init_poolmanager(self, *args, **kwargs):
         context = create_urllib3_context(ciphers=ANCIENT_CIPHERS)
         kwargs['ssl_context'] = context
-        return super(AncientCiphersAdapter, self).init_poolmanager(*args, **kwargs)
+        return super(
+            AncientCiphersAdapter, self
+        ).init_poolmanager(*args, **kwargs)
 
     def proxy_manager_for(self, *args, **kwargs):
         context = create_urllib3_context(ciphers=ANCIENT_CIPHERS)
         kwargs['ssl_context'] = context
-        return super(AncientCiphersAdapter, self).proxy_manager_for(*args, **kwargs)
+        return super(
+            AncientCiphersAdapter, self
+        ).proxy_manager_for(*args, **kwargs)
+
 
 # TODO - move it to some integration tests
 if __name__ == '__main__':

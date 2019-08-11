@@ -1,0 +1,44 @@
+when-pr-push: &when-pr-push
+  when:
+    event: [push, pull_request]
+
+docker-compose: &docker-compose
+  image: docker/compose:1.22.0
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
+pipeline:
+  build-python:
+    <<: *docker-compose
+    <<: *when-pr-push
+    commands:
+      - cd docker/
+      - docker-compose build app
+
+  test:
+    <<: *when-pr-push
+    image: fidals/adarsha_pass_bot
+    commands:
+      # use dummy config for tests for a while
+      - cp bot/config.py.dist bot/config.py
+      - pytest -vv bot/tests.py
+
+  lint-python:
+    <<: *when-pr-push
+    image: fidals/adarsha_pass_bot
+    commands:
+      - flake8
+
+  push-images:
+    <<: *docker-compose
+    environment:
+      - DOCKER_HUB_LOGIN=${DOCKER_HUB_LOGIN}
+      - DOCKER_HUB_PASSWORD=${DOCKER_HUB_PASSWORD}
+    commands:
+      - docker login -u $DOCKER_HUB_LOGIN -p $DOCKER_HUB_PASSWORD
+      - docker-compose push app
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    when:
+      event: push
+    secrets: [ DOCKER_HUB_LOGIN, DOCKER_HUB_PASSWORD ]
