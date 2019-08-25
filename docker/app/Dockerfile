@@ -1,27 +1,31 @@
 # it's `python3.7` image's parent container
 FROM buildpack-deps:buster
 
-ENV OPENSSL_VERSION=1.0.2p
+ENV OPENSSL_VERSION=1.1.1c
+ENV OPENSSL_SRC=/usr/local/src/openssl-$OPENSSL_VERSION
+
+WORKDIR /usr/local/src
 
 # install openssl from source
 RUN wget https://openssl.org/source/openssl-$OPENSSL_VERSION.tar.gz \
 	&& tar -xvf openssl-$OPENSSL_VERSION.tar.gz \
 	&& cd openssl-$OPENSSL_VERSION \
 	# enable ssl2 and ssl3. The most important part of the image
-	&& ./config shared --prefix=`pwd`/local --openssldir=/usr/lib/ssl enable-ssl3 enable-ssl3-method  \
+	&& ./config shared --prefix=`pwd`/local --openssldir=/usr/local/lib/ssl enable-ssl3 enable-ssl3-method  \
+	&& ./config shared --prefix=`pwd`/local --openssldir=`pwd`/local enable-ssl3 enable-ssl3-method \
 	&& make depend \
 	&& make \
 	&& make install \
-	# TODO - there is /usr/local/bin/ dest in original. Maybe try it
-	&& cp local/bin/openssl /usr/bin/ \
-	&& rm /usr/include/openssl/* && cp include/openssl/* /usr/include/openssl/  \
-	&& cd .. \
+	&& cp local/bin/openssl /usr/local/bin/ \
+	&& cd ..
 	&& rm -rf openssl-$OPENSSL_VERSION \
 	&& rm openssl-$OPENSSL_VERSION.tar.gz
 
-ENV LDFLAGS -L/usr/lib/ -L/usr/lib/ssl
-ENV LD_LIBRARY_PATH /usr/lib/:/usr/lib/ssl
-ENV CPPFLAGS -I/usr/include/openssl/:-I/usr/include/
+# tried rpath as was said at
+# https://stackoverflow.com/questions/22409092/coredump-when-compiling-python-with-a-custom-openssl-version
+ENV LDFLAGS -L$OPENSSL_SRC/local/lib -L$OPENSSL_SRC -Wl,-rpath,$OPENSSL_SRC/local/lib
+ENV LD_LIBRARY_PATH $OPENSSL_SRC/local/lib:$OPENSSL_SRC
+ENV CPPFLAGS -I$OPENSSL_SRC/include/openssl -I$OPENSSL_SRC/local/include/openssl
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
@@ -37,7 +41,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY 0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
-ENV PYTHON_VERSION 3.6.9
+ENV PYTHON_VERSION 3.7.4
 
 RUN set -ex \
 	\
@@ -62,43 +66,43 @@ RUN set -ex \
 		--with-system-expat \
 		--with-system-ffi \
 		--without-ensurepip \
-	&& make -j "$(nproc)" \
-# setting PROFILE_TASK makes "--enable-optimizations" reasonable: https://bugs.python.org/issue36044 / https://github.com/docker-library/python/issues/160#issuecomment-509426916
-		PROFILE_TASK='-m test.regrtest --pgo \
-			test_array \
-			test_base64 \
-			test_binascii \
-			test_binhex \
-			test_binop \
-			test_bytes \
-			test_c_locale_coercion \
-			test_class \
-			test_cmath \
-			test_codecs \
-			test_compile \
-			test_complex \
-			test_csv \
-			test_decimal \
-			test_dict \
-			test_float \
-			test_fstring \
-			test_hashlib \
-			test_io \
-			test_iter \
-			test_json \
-			test_long \
-			test_math \
-			test_memoryview \
-			test_pickle \
-			test_re \
-			test_set \
-			test_slice \
-			test_struct \
-			test_threading \
-			test_time \
-			test_traceback \
-			test_unicode \
-		' \
+#	&& make -j "$(nproc)" \
+## setting PROFILE_TASK makes "--enable-optimizations" reasonable: https://bugs.python.org/issue36044 / https://github.com/docker-library/python/issues/160#issuecomment-509426916
+#		PROFILE_TASK='-m test.regrtest --pgo \
+#			test_array \
+#			test_base64 \
+#			test_binascii \
+#			test_binhex \
+#			test_binop \
+#			test_bytes \
+#			test_c_locale_coercion \
+#			test_class \
+#			test_cmath \
+#			test_codecs \
+#			test_compile \
+#			test_complex \
+#			test_csv \
+#			test_decimal \
+#			test_dict \
+#			test_float \
+#			test_fstring \
+#			test_hashlib \
+#			test_io \
+#			test_iter \
+#			test_json \
+#			test_long \
+#			test_math \
+#			test_memoryview \
+#			test_pickle \
+#			test_re \
+#			test_set \
+#			test_slice \
+#			test_struct \
+#			test_threading \
+#			test_time \
+#			test_traceback \
+#			test_unicode \
+#		' \
 	&& make install \
 	&& ldconfig \
 	\
@@ -148,10 +152,13 @@ RUN set -ex; \
 CMD ["python3"]
 
 
-#COPY . /usr/src
-#WORKDIR /usr/src
-#RUN pip install -r requirements.txt
+COPY . /usr/src
+WORKDIR /usr/src
+RUN pip install -r requirements.txt
 
 # to test:
 # openssl s_client -connect google.com:443 -ssl3
+# dc run --rm app ldd /usr/local/bin/python
 # python -c "import ssl; print(ssl.OPENSSL_VERSION)"
+# dc run --rm app python bot/ssl_adapter.py
+# dc run --rm app python bot/ssl_adapter.py
