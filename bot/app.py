@@ -68,7 +68,6 @@ class IQPark:
     PASS_URL = DOMAIN + '/new_order.aspx'
 
     @property
-    @lru_cache(maxsize=1)
     def session(self) -> requests.Session:
         session = requests.Session()
         session.mount(self.DOMAIN, AncientCiphersAdapter())
@@ -109,6 +108,9 @@ class Admin:
     def order(self, pass_: Pass):
         print('order pass', pass_)
         self.iq_park.order(pass_)
+
+    def can_order(self):
+        pass
 
 
 # TODO - dockerize the app

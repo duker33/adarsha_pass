@@ -1,13 +1,15 @@
 import requests
+import ssl
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.ssl_ import create_urllib3_context
 
-from bot import config
+import config
 
 # taken from
 # https://ssl-config.mozilla.org/#server=nginx&server-version=1.17.0&config=old
 ANCIENT_CIPHERS = (
-    'ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256'
+    'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256'
+    ':ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256'
     ':ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384'
     ':ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305'
     ':DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384'
@@ -26,6 +28,7 @@ class AncientCiphersAdapter(HTTPAdapter):
     def init_poolmanager(self, *args, **kwargs):
         context = create_urllib3_context(ciphers=ANCIENT_CIPHERS)
         kwargs['ssl_context'] = context
+        kwargs['ssl_version'] = ssl.PROTOCOL_TLS
         return super(
             AncientCiphersAdapter, self
         ).init_poolmanager(*args, **kwargs)
@@ -33,6 +36,7 @@ class AncientCiphersAdapter(HTTPAdapter):
     def proxy_manager_for(self, *args, **kwargs):
         context = create_urllib3_context(ciphers=ANCIENT_CIPHERS)
         kwargs['ssl_context'] = context
+        kwargs['ssl_version'] = ssl.PROTOCOL_TLS
         return super(
             AncientCiphersAdapter, self
         ).proxy_manager_for(*args, **kwargs)
@@ -41,7 +45,7 @@ class AncientCiphersAdapter(HTTPAdapter):
 # TODO - move it to some integration tests
 if __name__ == '__main__':
     s = requests.Session()
-    s.mount('https://2an.ru', AncientCiphersAdapter())
+    s.mount('https://2an.ru', adapter=AncientCiphersAdapter())
     assert 200 == s.get(
         'https://2an.ru/new_order.aspx',
         auth=(config.LOGIN, config.PASSWORD)
