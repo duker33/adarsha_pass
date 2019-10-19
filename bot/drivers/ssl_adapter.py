@@ -38,7 +38,6 @@ class AncientCiphersAdapter(HTTPAdapter):
         ).proxy_manager_for(*args, **kwargs)
 
 
-# TODO - move it to some integration tests
 if __name__ == '__main__':
     s = requests.Session()
     s.mount('https://2an.ru', AncientCiphersAdapter())
