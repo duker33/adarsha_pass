@@ -30,5 +30,19 @@ services:
     volumes:
       - /dev/shm:/dev/shm
 
+  pdd:
+    image: fidals/pdd-ci
+    working_dir: /usr/src
+    volumes:
+      - ./:/usr/src
+    entrypoint:
+      - pdd
+      - --exclude=venv/**/*
+      - --exclude=.idea/**/*
+      - --exclude=**/*.pyc
+      - --exclude=**/*.orig
+      - -f report.xml
+
+
 networks:
   backend:

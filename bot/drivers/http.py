@@ -24,6 +24,7 @@ class HTTP(base.Driver):
     @lru_cache(maxsize=1)
     def session(self) -> requests.Session:
         session = requests.Session()
+        # @todo #1:30m  Drop ssl_adapter module.
         session.mount(config.IQPARK_URL, ssl_adapter.AncientCiphersAdapter())
         return session
 

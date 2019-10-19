@@ -69,9 +69,7 @@ class Admin:
         self.driver.order(pass_)
 
 
-# TODO - dockerize the app
-# Waiting docker to use dataclasses from containerized py3.7
-# @dataclass
+# @todo #1:15m  Cast Message to dataclass.
 class Message:
     messenger = 'VK'
     user_id: str
@@ -114,8 +112,8 @@ class Bot:
         self.admin = admin
         self.messenger = messenger
 
-    # TODO - only Admin should create passes. Refactor arch
-    def order_pass(self, message: Message):
+    def receive(self, message: Message):
+        # waiting #6 to log message receiving
         # Питонов Андрей Андреевич 01.08.2019
         tokens = message.text.split(' ')
         self.admin.order(
@@ -124,10 +122,6 @@ class Bot:
                 date_=datetime.strptime(tokens[3], '%d.%m.%Y').date()
             )
         )
-
-    def receive(self, message: Message):
-        # TODO - log info there
-        self.order_pass(message)
 
     def listen(self):
         for message in self.messenger.listen():
