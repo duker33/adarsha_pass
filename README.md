@@ -29,7 +29,7 @@ To fetch the secrets address to [duker](https://about.me/duker33).
 To run the server itself choose one of two options: python venv (recommended) or selenium.
 
 
-#### Running with python venv
+#### Option 1: Running with python venv (recommended)
 Since http driver doesn't work with docker, we should run it on the local machine.
 It's not good level of dev env isolation, but it's working temporary decision.
 
@@ -40,7 +40,7 @@ python3 main.py  # run server
 pytest test/  # run tests
 ```
 
-#### Running with docker
+#### Option 2: Running with docker
 **Note:** Only selenium driver works with docker.
 It's because of IQParks webpanel uses old TLS1.0 encrypting.
 To use http driver run server with python venv/
