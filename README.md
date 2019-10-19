@@ -7,7 +7,17 @@ Bot orders passes throw [iq-park](http://iqpark-msk.ru/) business centre to [Ada
 
 It's not open source project, since it's not possible to reuse it. But it's open code one.
 
-## Running the bot server
+## Contribution
+We appreciate contributions.
+In case of implementing features we recommend
+to spend not more time then estimated (see the tag with estimate).
+For example instead of spending 10 hours please spend just 1 hour
+and append subtasks right to the code in [this format](https://github.com/yegor256/pdd#how-to-format).
+This method is called Puzzle Driven Development (PDD).
+See [short PDD concept description](https://www.yegor256.com/2010/03/04/pdd.html)
+to get familiar with it.
+
+### Running the bot server
 First of all you should configure the project.
 Copy the config file from it's dist:
 ```
@@ -19,7 +29,7 @@ To fetch the secrets address to [duker](https://about.me/duker33).
 To run the server itself choose one of two options: python venv (recommended) or selenium.
 
 
-### Running with python venv
+#### Running with python venv
 Since http driver doesn't work with docker, we should run it on the local machine.
 It's not good level of dev env isolation, but it's working temporary decision.
 
@@ -30,7 +40,7 @@ python3 main.py  # run server
 pytest test/  # run tests
 ```
 
-### Running with docker
+#### Running with docker
 **Note:** Only selenium driver works with docker.
 It's because of IQParks webpanel uses old TLS1.0 encrypting.
 To use http driver run server with python venv/
