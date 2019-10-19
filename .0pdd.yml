@@ -5,5 +5,5 @@ alerts:
     - duker33
   suppress:
     - on-scope
-  format:
-    - short-title
+format:
+  - short-title
