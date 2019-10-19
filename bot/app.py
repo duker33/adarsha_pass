@@ -1,18 +1,11 @@
 # magic "run all" here
-import requests
 import typing
 from datetime import date, datetime
-from functools import lru_cache
 
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
-from bot import config, form
-from bot.ssl_adapter import AncientCiphersAdapter
-
-
-class PassOrderingError(Exception):
-    ...
+from bot import config, drivers, form
 
 
 class VkAccount:
@@ -60,41 +53,6 @@ class Pass:
         )
 
 
-class IQPark:
-    """
-    - create pass for guest
-    """
-    DOMAIN = 'https://2an.ru'
-    PASS_URL = DOMAIN + '/new_order.aspx'
-
-    @property
-    @lru_cache(maxsize=1)
-    def session(self) -> requests.Session:
-        session = requests.Session()
-        session.mount(self.DOMAIN, AncientCiphersAdapter())
-        return session
-
-    def order(self, pass_: Pass):
-        """
-        Order pass with IQPark admin panel.
-
-        @raises PassOrderingError
-        """
-        print('form data', pass_.as_form_data())
-
-        response = self.session.post(
-            self.PASS_URL,
-            data={**pass_.as_form_data(), **form.DATA},
-            auth=(config.LOGIN, config.PASSWORD)
-        )
-        if response.status_code == 200:
-            # TODO - log success
-            pass
-        else:
-            # TODO - raise failure
-            pass
-
-
 class Admin:
     """
     Holds all complicated scheme semantic
@@ -103,18 +61,18 @@ class Admin:
     - request iq_park for the pass for guest
     """
 
-    def __init__(self, iq_park: IQPark):
-        self.iq_park = iq_park
+    def __init__(self, driver: drivers.Driver):
+        self.driver = driver
 
     def order(self, pass_: Pass):
         print('order pass', pass_)
-        self.iq_park.order(pass_)
+        self.driver.order(pass_)
 
 
 # TODO - dockerize the app
 # Waiting docker to use dataclasses from containerized py3.7
 # @dataclass
-class Message():
+class Message:
     messenger = 'VK'
     user_id: str
     text: str

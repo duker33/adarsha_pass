@@ -7,12 +7,15 @@ docker-compose: &docker-compose
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
 
+lint: &lint
+  <<: *when-pr-push
+  group: lint
+
 pipeline:
   build-python:
     <<: *docker-compose
     <<: *when-pr-push
     commands:
-      - cd docker/
       - docker-compose build app
 
   test:
@@ -24,10 +27,21 @@ pipeline:
       - pytest -vv bot/tests.py
 
   lint-python:
-    <<: *when-pr-push
+    <<: *lint
     image: fidals/adarsha_pass_bot
     commands:
       - flake8
+
+  lint-pdd:
+    <<: *lint
+    image: fidals/pdd-ci
+    commands:
+      - pdd --verbose
+        --exclude=.pytest_cache/**/*
+        --exclude=venv/**/*
+        --exclude=.idea/**/*
+        --exclude=**/*.pyc
+        -f report.xml
 
   push-images:
     <<: *docker-compose

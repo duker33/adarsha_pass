@@ -1,0 +1,34 @@
+version: '2'
+services:
+  app:
+    image: fidals/adarsha_pass_bot
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    volumes:
+      - ./:/usr/src
+    networks:
+      - backend
+    command: sleep infinity
+    # command: python main.py
+
+  selenium:
+    image: selenium/standalone-chrome-debug:3.141.59-oxygen
+    restart: always
+    ports:
+      - 4444
+      # VNC port. Password: secret
+      - 5900:5900
+    environment:
+      - DBUS_SESSION_BUS_ADDRESS=/dev/null
+      - SCREEN_WIDTH=1366
+      - SCREEN_HEIGHT=768
+    networks:
+      - backend
+    # https://github.com/SeleniumHQ/docker-selenium#running-the-images
+    shm_size: 4G
+    volumes:
+      - /dev/shm:/dev/shm
+
+networks:
+  backend:

@@ -14,3 +14,7 @@ FORM_PRIVATE_FIELDS = {
     'ctl00$PageContent$TbxFloor': '',
     'ctl00$PageContent$TbxOffice': '',
 }
+
+SELENIUM_WAIT_SECONDS = 180
+
+IQPARK_URL = 'https://2an.ru'
