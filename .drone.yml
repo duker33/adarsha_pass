@@ -11,6 +11,10 @@ lint: &lint
   <<: *when-pr-push
   group: lint
 
+# --- CI config ---
+branches: master
+
+# --- Pipeline ---
 pipeline:
   build-python:
     <<: *docker-compose
