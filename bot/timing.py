@@ -33,7 +33,6 @@ class Week(BaseDateTime):
 
 
 class PassTiming:
-    # TODO - add typing for pass
     def __init__(self, pass_):
         self.pass_ = pass_
 

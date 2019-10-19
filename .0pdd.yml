@@ -3,4 +3,7 @@ errors:
 alerts:
   github:
     - duker33
-
+  suppress:
+    - on-scope
+format:
+  - short-title
