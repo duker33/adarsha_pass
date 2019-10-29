@@ -25,7 +25,8 @@ class Guest:
 
     @classmethod
     def from_fio(cls, fio: str, vk_account: VkAccount = None):
-        tokens = fio.split(' ')
+        # use maxsplit because some patronymics could contain whitespaces
+        tokens = fio.split(' ', maxsplit=2)
         assert len(tokens) == 3, tokens
         # noinspection PyTypeChecker
         return cls(*tokens, vk_account)
