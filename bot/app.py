@@ -38,6 +38,9 @@ class Guest:
     def __str__(self):
         return f'FIO: {self.fio}. VK id: {self.vk_account}'
 
+    def __repr__(self):
+        return f'FIO: {self.fio}. VK id: {self.vk_account}'
+
 
 class Pass:
     def __init__(self, guest: Guest, date_: date):
@@ -45,6 +48,9 @@ class Pass:
         self.date = date_
 
     def __str__(self):
+        return f'Pass for {self.guest}. To the date {self.date.isoformat()}'
+
+    def __repr__(self):
         return f'Pass for {self.guest}. To the date {self.date.isoformat()}'
 
     def as_form_data(self) -> typing.Dict[str, str]:
@@ -66,7 +72,6 @@ class Admin:
         self.driver = driver
 
     def order(self, pass_: Pass):
-        print('order pass', pass_)
         self.driver.order(pass_)
 
 
