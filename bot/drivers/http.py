@@ -29,17 +29,21 @@ class HTTP(base.Driver):
         return session
 
     def order(self, pass_):
-        response = self.session.post(
-            config.IQPARK_ORDER_URL,
-            data={**pass_.as_form_data(), **DATA},
-            auth=(config.LOGIN, config.PASSWORD)
-        )
-        if response.status_code == 200:
-            # waiting #6 to be logged
-            pass
-        else:
-            # waiting #6 to be logged
-            pass
+        try:
+            response = self.session.post(
+                config.IQPARK_ORDER_URL,
+                data={**pass_.as_form_data(), **DATA},
+                auth=(config.LOGIN, config.PASSWORD)
+            )
+            if response.status_code == 200:
+                # waiting #6 to be logged
+                pass
+            else:
+                print(f'{pass_} was not created')
+                # waiting #6 to be logged
+                pass
+        except Exception as e:
+            print(f'{pass_} was not created. Reason: \n{e}')
 
     def confirm(self, pass_) -> bool:
         # @todo #1:120m  Implement drivers.http.confirm method.

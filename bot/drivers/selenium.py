@@ -41,14 +41,14 @@ class Browser(Remote):
     It's redundant class. Needs to be removed.
     """
 
-    SELENIUM_URL = 'http://selenium:4444/wd/hub'
+    SELENIUM_URL = config.SELENIUM_SERVER_URL
     # using old styled and unsafe url credentials
     # because of auth alert doesn't work well with Selenium.
     # It hangs at the `selenium.WebDriver.get('https://2an.ru')` call,
     # so `selenium.WebDriver.switch_to.alert` won't help.
     SITE_BASE_URL = f'https://{config.LOGIN}:{config.PASSWORD}@2an.ru'
 
-    def __init__(self, *, keep_alive=False, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__(
             command_executor=self.SELENIUM_URL,
             desired_capabilities=CAPABILITIES,

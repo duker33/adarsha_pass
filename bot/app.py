@@ -25,8 +25,9 @@ class Guest:
 
     @classmethod
     def from_fio(cls, fio: str, vk_account: VkAccount = None):
-        tokens = fio.split(' ')
-        assert len(tokens) == 3, tokens
+        tokens = fio.split(' ', maxsplit=2)
+        # someone has no patronymic, someone - complex one
+        assert len(tokens) >= 2, tokens
         # noinspection PyTypeChecker
         return cls(*tokens, vk_account)
 

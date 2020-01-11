@@ -15,13 +15,13 @@ services:
     image: selenium/standalone-chrome-debug:3.141.59-oxygen
     restart: always
     ports:
-      - 4444
+      - 4444:4444
       # VNC port. Password: secret
       - 5900:5900
     environment:
       - DBUS_SESSION_BUS_ADDRESS=/dev/null
-      - SCREEN_WIDTH=1366
-      - SCREEN_HEIGHT=768
+      - SCREEN_WIDTH=800
+      - SCREEN_HEIGHT=600
     networks:
       - backend
     # https://github.com/SeleniumHQ/docker-selenium#running-the-images

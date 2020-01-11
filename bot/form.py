@@ -7,8 +7,8 @@ def pass_fields(surname: str, name: str, patronymic: str, date_: str):
     """
     return {
         'ctl00$PageContent$TbxFirstName': surname,
-        'ctl00$PageContent$TbxMiddleName': name,
-        'ctl00$PageContent$TbxSecondName': patronymic,
+        'ctl00$PageContent$TbxMiddleName': patronymic,
+        'ctl00$PageContent$TbxSecondName': name,
         'ctl00$PageContent$HfSelectedDates': date_,
     }
 

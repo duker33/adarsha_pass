@@ -1,3 +1,4 @@
+click
 flake8
 pytest
 requests==2.*
