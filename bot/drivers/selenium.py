@@ -57,16 +57,6 @@ class Browser(Remote):
         self.wait = ui.WebDriverWait(self, config.SELENIUM_WAIT_SECONDS)
         self.short_wait = ui.WebDriverWait(self, config.SELENIUM_WAIT_SECONDS // 4)
 
-    @staticmethod
-    def check_password_is_valid():
-        """Password should be valid to include it to the url."""
-        bad_symbols = '#'
-        if set(config.PASSWORD).intersection(set(bad_symbols)):
-            raise ValueError(
-                'config.PASSWORD contains one of unsupported symbols'
-                f'from set "{bad_symbols}".'
-            )
-
     def get(self, path: str):
         super().get(urljoin(self.SITE_BASE_URL, path))
 
@@ -146,4 +136,7 @@ class Selenium(base.Driver):
         page.send_form()
 
     def confirm(self, pass_) -> bool:
+        raise NotImplementedError()
+
+    def cancel(self, pass_) -> bool:
         raise NotImplementedError()

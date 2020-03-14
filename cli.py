@@ -7,6 +7,7 @@ from bot import app, drivers
 @click.option(
     '-dr', '--driver', prompt='Driver to communicate with IQPark.',
     type=click.Choice(['http', 'selenium'], case_sensitive=False),
+    default='http',
 )
 @click.pass_context
 def cli(ctx, driver: str):

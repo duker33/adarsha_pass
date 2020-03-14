@@ -5,7 +5,7 @@ from bot.app import drivers, Admin, Guest, Pass
 from time import sleep
 
 DAYS = [
-    2, 3, 4, 6, 7, 8, 9, 10, 11, 
+    10, 11,
     13, 14, 15, 16, 17, 18, 
     20, 21, 22, 23, 24, 25, 
     27, 28, 29, 30, 31
@@ -13,7 +13,7 @@ DAYS = [
 
 
 def fetch_guests() -> typing.List[str]:
-    with open('~/adarsha_passes_jan.csv', 'r', encoding='utf8') as f:
+    with open('/root/adarsha_passes_jan.csv', 'r', encoding='utf8') as f:
         return [fio for fio in f.read().split('\n') if fio]
 
 

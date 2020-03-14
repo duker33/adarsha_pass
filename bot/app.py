@@ -1,4 +1,5 @@
 # magic "run all" here
+from itertools import zip_longest
 import typing
 from datetime import date, datetime
 
@@ -16,7 +17,7 @@ class Guest:
     def __init__(
         self,
         surname: str, name: str, patronymic: str,
-        vk_account: VkAccount = None
+        vk_account: typing.Union[VkAccount, str, None] = None
     ):
         self.surname = surname
         self.name = name
@@ -28,7 +29,7 @@ class Guest:
         tokens = fio.split(' ', maxsplit=2)
         # someone has no patronymic, someone - complex one
         assert len(tokens) >= 2, tokens
-        # noinspection PyTypeChecker
+        tokens = [t or d for t, d in zip_longest(tokens, 3*[''])]
         return cls(*tokens, vk_account)
 
     @property
@@ -68,6 +69,12 @@ class Admin:
     def order(self, pass_: Pass):
         print('order pass', pass_)
         self.driver.order(pass_)
+
+    def check_roughly(self, pass_: Pass):
+        """Check only at the last 16 records."""
+        # - open orders page
+        # - find the pass
+        pass
 
 
 # @todo #1:15m  Cast Message to dataclass.
@@ -116,7 +123,7 @@ class Bot:
     def receive(self, message: Message):
         # waiting #6 to log message receiving
         # Питонов Андрей Андреевич 01.08.2019
-        tokens = message.text.split(' ')
+        tokens = message.text.split()
         self.admin.order(
             Pass(
                 Guest(*tokens[:3], vk_account=message.user_id),

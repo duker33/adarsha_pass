@@ -1,5 +1,7 @@
 """Interacts with IqPark panel with the plain http."""
-
+import json
+import bs4
+import os
 import requests
 from functools import lru_cache
 
@@ -46,15 +48,37 @@ class HTTP(base.Driver):
             print(f'{pass_} was not created. Reason: \n{e}')
 
     def confirm(self, pass_) -> bool:
-        # @todo #1:120m  Implement drivers.http.confirm method.
-        #  And invoke it in existing tests.
-        raise NotImplementedError()
+        with open(f'{os.path.dirname(__file__)}/confirm_order.json', encoding='utf8') as f:
+            data = json.loads(f.read())
+            # 'Form data', 'Request payload'
+            response = requests.post(
+                config.IQPARK_PASSES_URL, auth=(config.LOGIN, config.PASSWORD),
+                data=data['Form data'],
+            )
+        assert 'выполнение javascript-сценариев' not in response.text
+        soup = bs4.BeautifulSoup(
+            response.text, 'html.parser',
+            from_encoding='utf8'
+        )
+        date = soup.find(id='ctl00_PageContent_gvOrders_tccell0_0').next_sibling
+        fio = soup.find(id='ctl00_PageContent_gvOrders_tccell0_2').next_sibling
+        return (
+            fio.text == pass_.guest.fio
+            and date.text == f'{pass_.date:%d.%m.%Y}'
+        )
 
     def cancel(self, pass_):
         # @todo #1:120m  Implement drivers.http.cancel method.
         #  And invoke it in existing tests.
         #  It's not trivial tasks since http request building is required.
         pass
+
+    def passes(self):
+        response = self.session.get(
+            config.IQPARK_PASSES_URL, auth=(config.LOGIN, config.PASSWORD)
+        )
+        'td#ctl00_PageContent_gvOrders_tccell0_0 + td.dxgv'
+        return response
 
 
 # IQPark's form data
