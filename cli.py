@@ -25,11 +25,23 @@ def cli(ctx, driver: str):
 def guest(ctx, fio, date):
     """Fetch pass for one guest."""
     pass_ = app.Pass(app.Guest(*fio), date_=date)
-    if ctx.obj['driver'] == 'http':
-        driver = drivers.HTTP()
-    else:  # it's selenium
-        driver = drivers.Selenium()
+    driver = drivers.HTTP() if ctx.obj['driver'] == 'http' else drivers.Selenium()
     driver.order(pass_)
+
+
+@cli.command()
+@click.argument('fio', type=click.STRING, nargs=3)
+@click.option(
+    '-d', '--date', type=click.DateTime(formats=['%d.%m.%Y', '%Y-%m-%d']),
+    prompt='Date for the pass'
+)
+@click.pass_context
+def confirm(ctx, fio, date):
+    """Fetch pass for one guest."""
+    pass_ = app.Pass(app.Guest(*fio), date_=date)
+    driver = drivers.HTTP() if ctx.obj['driver'] == 'http' else drivers.Selenium()
+    res = 'confirmed' if driver.confirm(pass_) else 'not confirmed'
+    click.echo(res)
 
 
 @cli.command()

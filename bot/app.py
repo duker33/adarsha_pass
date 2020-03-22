@@ -1,12 +1,16 @@
 # magic "run all" here
-from itertools import zip_longest
+import attr
+import random
 import typing
 from datetime import date, datetime
+from itertools import zip_longest
+from returns.pipeline import pipeline
+from returns.result import Result, Success, Failure
 
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
-from bot import config, drivers, form
+from bot import config, base, drivers, form
 
 
 class VkAccount:
@@ -48,6 +52,12 @@ class Pass:
     def __str__(self):
         return f'Pass for {self.guest}. To the date {self.date.isoformat()}'
 
+    def valid_for_order(self) -> Result[bool, str]:
+        return (
+            Success(True) if self.date >= date.today()
+            else Failure('Past date pass')
+        )
+
     def as_form_data(self) -> typing.Dict[str, str]:
         return form.pass_fields(
             self.guest.surname, self.guest.name, self.guest.patronymic,
@@ -66,15 +76,17 @@ class Admin:
     def __init__(self, driver: drivers.Driver):
         self.driver = driver
 
-    def order(self, pass_: Pass):
+    @pipeline(Result)
+    def order(self, pass_: Pass) -> Result[bool, str]:
         print('order pass', pass_)
-        self.driver.order(pass_)
+        pass_.valid_for_order().unwrap()
+        return self.driver.order(pass_)
 
-    def check_roughly(self, pass_: Pass):
-        """Check only at the last 16 records."""
-        # - open orders page
-        # - find the pass
-        pass
+    def confirm(self, pass_: Pass) -> bool:
+        res = self.driver.confirm(pass_)
+        word = 'confirmed' if res else 'rejected'
+        print(f'{word} pass', pass_)
+        return res
 
 
 # @todo #1:15m  Cast Message to dataclass.
@@ -87,8 +99,11 @@ class Message:
         self.user_id = user_id
         self.text = text
 
+    def __str__(self):
+        return f'user={self.user_id}. {self.text}'
 
-class VkMessenger:
+
+class VkMessenger(base.Messenger):
     """Vk bot docs: https://vk.com/dev/bots_docs"""
 
     MESSAGE_TYPES = [
@@ -114,23 +129,47 @@ class VkMessenger:
             if event.type in self.MESSAGE_TYPES:
                 yield Message(user_id=event.obj.from_id, text=event.obj.text)
 
+    def send(self, message: Message):
+        vk = self.session.get_api()
+        vk.messages.send(
+            user_id=message.user_id,
+            random_id=random.randrange(0, 2**64),
+            message=message.text
+        )
 
+
+@attr.s(auto_attribs=True)
 class Bot:
-    def __init__(self, admin: Admin, messenger: VkMessenger):
-        self.admin = admin
-        self.messenger = messenger
+    admin: Admin
+    messenger: VkMessenger
+    MY_MESSAGES = [
+        'Пропуск', 'Не могу сделать пропуск',
+    ]
 
-    def receive(self, message: Message):
+    def receive(self, message: Message) -> Message:
         # waiting #6 to log message receiving
         # Питонов Андрей Андреевич 01.08.2019
+        result = ''
         tokens = message.text.split()
-        self.admin.order(
-            Pass(
-                Guest(*tokens[:3], vk_account=message.user_id),
-                date_=datetime.strptime(tokens[3], '%d.%m.%Y').date()
+        pass_ = Pass(
+            Guest(*tokens[:3], vk_account=message.user_id),
+            date_=datetime.strptime(tokens[3], '%d.%m.%Y').date()
+        )
+        ordered = self.admin.order(pass_)
+        if ordered.value_or(None) is None:
+            result = 'Не могу сделать пропуск с неверными данными'
+            if 'Past date pass' in ordered.fix(lambda x: x).unwrap():
+                result = 'Не могу сделать пропуск с прошедшей датой'
+        return Message(
+            user_id=message.user_id,
+            text=result or (
+                f'Пропуск успешно заказан'
+                if self.admin.confirm(pass_) else f'Ошибка при заказе пропуска'
             )
         )
 
     def listen(self):
         for message in self.messenger.listen():
-            self.receive(message)
+            if all(msg not in message.text for msg in self.MY_MESSAGES):
+                answer = self.receive(message)
+                self.messenger.send(answer)

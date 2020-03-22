@@ -4,6 +4,7 @@ import bs4
 import os
 import requests
 from functools import lru_cache
+from returns.result import Result, Success, Failure
 
 from bot import config
 from . import base, ssl_adapter
@@ -30,7 +31,7 @@ class HTTP(base.Driver):
         session.mount(config.IQPARK_URL, ssl_adapter.AncientCiphersAdapter())
         return session
 
-    def order(self, pass_):
+    def order(self, pass_) -> Result[bool, str]:
         try:
             response = self.session.post(
                 config.IQPARK_ORDER_URL,
@@ -39,13 +40,14 @@ class HTTP(base.Driver):
             )
             if response.status_code == 200:
                 # waiting #6 to be logged
-                pass
+                return Success(True)
             else:
                 print(f'{pass_} was not created')
                 # waiting #6 to be logged
-                pass
+                return Failure(f'Wrong response code {response.status_code}')
         except Exception as e:
             print(f'{pass_} was not created. Reason: \n{e}')
+            return Failure(f'{pass_} was not created. Reason: \n{e}')
 
     def confirm(self, pass_) -> bool:
         with open(f'{os.path.dirname(__file__)}/confirm_order.json', encoding='utf8') as f:
@@ -56,10 +58,7 @@ class HTTP(base.Driver):
                 data=data['Form data'],
             )
         assert 'выполнение javascript-сценариев' not in response.text
-        soup = bs4.BeautifulSoup(
-            response.text, 'html.parser',
-            from_encoding='utf8'
-        )
+        soup = bs4.BeautifulSoup(response.text, 'html.parser')
         date = soup.find(id='ctl00_PageContent_gvOrders_tccell0_0').next_sibling
         fio = soup.find(id='ctl00_PageContent_gvOrders_tccell0_2').next_sibling
         return (

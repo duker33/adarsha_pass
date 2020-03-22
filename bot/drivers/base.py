@@ -1,9 +1,11 @@
 import abc
 
+from returns.result import Result
+
 
 class Driver(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def order(self, pass_):
+    def order(self, pass_) -> Result[bool, str]:
         raise NotImplementedError()
 
     @abc.abstractmethod
