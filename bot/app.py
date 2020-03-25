@@ -6,6 +6,7 @@ from datetime import date, datetime
 from itertools import zip_longest
 from returns.pipeline import pipeline
 from returns.result import Result, Success, Failure
+from requests.exceptions import RequestException
 
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
@@ -125,9 +126,13 @@ class VkMessenger(base.Messenger):
         return VkBotLongPoll(self.session, config.VK_GROUP_ID)
 
     def listen(self) -> typing.Generator[Message, None, None]:
-        for event in self.longpoll.listen():
-            if event.type in self.MESSAGE_TYPES:
-                yield Message(user_id=event.obj.from_id, text=event.obj.text)
+        while True:
+            try:
+                for event in self.longpoll.listen():
+                    if event.type in self.MESSAGE_TYPES:
+                        yield Message(user_id=event.obj.from_id, text=event.obj.text)
+            except RequestException as e:
+                print(str(e))
 
     def send(self, message: Message):
         vk = self.session.get_api()
